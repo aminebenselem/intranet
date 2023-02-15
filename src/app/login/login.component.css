@@ -8,9 +8,11 @@
 }
 img{
 	margin-top: -50px;
+	height: 175px;
+	width: 220px;
 }
 body {
-	background: linear-gradient(90deg, #dba363, #669933);		
+	background: linear-gradient(90deg, #fff, #219ee1);		
 }
 
 .container {
