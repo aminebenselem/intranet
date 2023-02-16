@@ -4,6 +4,7 @@ import { LoginComponent } from './login/login.component';
 import { AnnuaireComponent } from './annuaire/annuaire.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.component';
+import { AgendaComponent } from './agenda/agenda.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent
   },
@@ -28,6 +29,12 @@ const routes: Routes = [
   { 
     path: '', 
     redirectTo: '/tempdetravail', 
+    pathMatch: 'full' 
+  },
+  { path:'agenda', component: AgendaComponent },
+  { 
+    path: '', 
+    redirectTo: '/agenda', 
     pathMatch: 'full' 
   }
 ];
