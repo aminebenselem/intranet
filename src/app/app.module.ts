@@ -12,6 +12,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { AnnuaireComponent } from './annuaire/annuaire.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.component';
+import { AgendaComponent } from './agenda/agenda.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +22,8 @@ import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.com
     LogoutComponent,
     AnnuaireComponent,
     AcceuilComponent,
-    TempsDeTravailComponent
+    TempsDeTravailComponent,
+    AgendaComponent
   ],
   imports: [
     BrowserModule,
