@@ -5,6 +5,7 @@ import { AnnuaireComponent } from './annuaire/annuaire.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.component';
 import { AgendaComponent } from './agenda/agenda.component';
+import { ActualitesComponent } from './actualites/actualites.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent
   },
@@ -36,7 +37,14 @@ const routes: Routes = [
     path: '', 
     redirectTo: '/agenda', 
     pathMatch: 'full' 
-  }
+  },
+  { path:'actualites', component: ActualitesComponent },
+  { 
+    path: '', 
+    redirectTo: '/actualites', 
+    pathMatch: 'full' 
+  },
+
 ];
 
 @NgModule({

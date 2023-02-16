@@ -13,6 +13,8 @@ import { AnnuaireComponent } from './annuaire/annuaire.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.component';
 import { AgendaComponent } from './agenda/agenda.component';
+import { EventComponent } from './event/event.component';
+import { ActualitesComponent } from './actualites/actualites.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,9 @@ import { AgendaComponent } from './agenda/agenda.component';
     AnnuaireComponent,
     AcceuilComponent,
     TempsDeTravailComponent,
-    AgendaComponent
+    AgendaComponent,
+    EventComponent,
+    ActualitesComponent
   ],
   imports: [
     BrowserModule,
