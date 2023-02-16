@@ -9,13 +9,19 @@ import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AnnuaireComponent } from './annuaire/annuaire.component';
+import { AcceuilComponent } from './acceuil/acceuil.component';
+import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.component';
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HeaderComponent,
     FooterComponent,
-    LogoutComponent
+    LogoutComponent,
+    AnnuaireComponent,
+    AcceuilComponent,
+    TempsDeTravailComponent
   ],
   imports: [
     BrowserModule,
