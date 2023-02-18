@@ -15,6 +15,7 @@ import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.com
 import { AgendaComponent } from './agenda/agenda.component';
 import { EventComponent } from './event/event.component';
 import { ActualitesComponent } from './actualites/actualites.component';
+import { ForumComponent } from './forum/forum.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +28,8 @@ import { ActualitesComponent } from './actualites/actualites.component';
     TempsDeTravailComponent,
     AgendaComponent,
     EventComponent,
-    ActualitesComponent
+    ActualitesComponent,
+    ForumComponent
   ],
   imports: [
     BrowserModule,

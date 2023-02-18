@@ -1,3 +1,49 @@
+img{
+  width: 100px;
+  height: 100px;
+  bottom:20px ;
+}
+@media(max-width:1366px){
+  img{
+    width: 220px;
+  }
+  header{
+
+    padding:12px;
+    background-color: #3f3f3f;
+  
+  
+  }
+  .menu{
+   margin-top: 10px;
+  }
+  .menu ul{
+    
+    margin-left: 24px;
+  }
+  
+  .menu ul li{
+    list-style-type: none;
+    display: inline-flex;
+    margin-right: -5px;
+    margin-top: 40px;
+  
+   
+  
+  }
+  .menu ul li a{
+    display: inline;
+    list-style: none;
+    text-decoration: none;
+    color: #ffffff;
+    font-size:11px;
+  }
+  .menu ul li a:hover{
+    color: #fc0101;
+    cursor: pointer;
+    transition: 0.4s ease-in-out;
+  }
+}
 header{
 
   padding:12px 0;
