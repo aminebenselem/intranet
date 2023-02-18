@@ -6,6 +6,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.component';
 import { AgendaComponent } from './agenda/agenda.component';
 import { ActualitesComponent } from './actualites/actualites.component';
+import { ForumComponent } from './forum/forum.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent
   },
@@ -15,35 +16,17 @@ const routes: Routes = [
     pathMatch: 'full' 
   },
   { path:'annuaire', component: AnnuaireComponent},
-  { 
-    path: '', 
-    redirectTo: '/annuaire', 
-    pathMatch: 'full' 
-  },
+
   { path:'acceuil', component: AcceuilComponent},
-  { 
-    path: '', 
-    redirectTo: '/acceuil', 
-    pathMatch: 'full' 
-  },
+  
   { path:'tempdetravail', component: TempsDeTravailComponent },
-  { 
-    path: '', 
-    redirectTo: '/tempdetravail', 
-    pathMatch: 'full' 
-  },
+  
   { path:'agenda', component: AgendaComponent },
-  { 
-    path: '', 
-    redirectTo: '/agenda', 
-    pathMatch: 'full' 
-  },
+  
   { path:'actualites', component: ActualitesComponent },
-  { 
-    path: '', 
-    redirectTo: '/actualites', 
-    pathMatch: 'full' 
-  },
+  
+  { path:'forum', component: ForumComponent },
+
 
 ];
 
