@@ -7,6 +7,7 @@ import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.com
 import { AgendaComponent } from './agenda/agenda.component';
 import { ActualitesComponent } from './actualites/actualites.component';
 import { ForumComponent } from './forum/forum.component';
+import { EventComponent } from './event/event.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent
   },
@@ -26,6 +27,8 @@ const routes: Routes = [
   { path:'actualites', component: ActualitesComponent },
   
   { path:'forum', component: ForumComponent },
+  
+  { path:'events', component: EventComponent },
 
 
 ];
