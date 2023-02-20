@@ -6,6 +6,7 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.component';
 import { AgendaComponent } from './agenda/agenda.component';
 import { ActualitesComponent } from './actualites/actualites.component';
+import { DocumentsComponent } from './documents/documents.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent
   },
@@ -42,6 +43,12 @@ const routes: Routes = [
   { 
     path: '', 
     redirectTo: '/actualites', 
+    pathMatch: 'full' 
+  },
+  { path:'documents', component: DocumentsComponent },
+  { 
+    path: '', 
+    redirectTo: '/documents', 
     pathMatch: 'full' 
   },
 
