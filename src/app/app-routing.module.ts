@@ -6,6 +6,8 @@ import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.component';
 import { AgendaComponent } from './agenda/agenda.component';
 import { ActualitesComponent } from './actualites/actualites.component';
+import { DocumentsComponent } from './documents/documents.component';
+
 import { ForumComponent } from './forum/forum.component';
 import { EventComponent } from './event/event.component';
 const routes: Routes = [
@@ -25,6 +27,9 @@ const routes: Routes = [
   { path:'agenda', component: AgendaComponent },
   
   { path:'actualites', component: ActualitesComponent },
+  { path:'documents', component: DocumentsComponent },
+  
+
   
   { path:'forum', component: ForumComponent },
   
