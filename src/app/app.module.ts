@@ -17,6 +17,7 @@ import { EventComponent } from './event/event.component';
 import { ActualitesComponent } from './actualites/actualites.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { ForumComponent } from './forum/forum.component';
+import { FormationComponent } from './formation/formation.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +31,9 @@ import { ForumComponent } from './forum/forum.component';
     AgendaComponent,
     EventComponent,
     ActualitesComponent,
-    DocumentsComponent
-    ForumComponent
+    DocumentsComponent,
+    ForumComponent,
+    FormationComponent
   ],
   imports: [
     BrowserModule,

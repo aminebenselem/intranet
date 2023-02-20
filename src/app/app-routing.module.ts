@@ -10,6 +10,7 @@ import { DocumentsComponent } from './documents/documents.component';
 
 import { ForumComponent } from './forum/forum.component';
 import { EventComponent } from './event/event.component';
+import { FormationComponent } from './formation/formation.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent
   },
@@ -29,11 +30,10 @@ const routes: Routes = [
   { path:'actualites', component: ActualitesComponent },
   { path:'documents', component: DocumentsComponent },
   
-
-  
   { path:'forum', component: ForumComponent },
   
   { path:'events', component: EventComponent },
+  { path:'formation', component: FormationComponent },
 
 
 ];
