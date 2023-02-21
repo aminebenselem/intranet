@@ -2,6 +2,21 @@ body{
     background: #F4F7FD;
     margin-top:20px;
 }
+thead {
+    top: 0;
+    position: sticky;
+  }
+  .section-title h2 {
+    font-weight: 700;
+    color: #20247b;
+    font-size: 45px;
+    margin: 0 0 15px;
+    border-left: 5px solid #fc5356;
+    padding-left: 15px;
+  }
+  .section-title {
+    padding-top: 45px;
+  }
 
 .event-list .event-item {
     padding: 1rem 1.9rem;
