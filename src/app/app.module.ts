@@ -20,6 +20,8 @@ import { ForumComponent } from './forum/forum.component';
 import { FormationComponent } from './formation/formation.component';
 import { FichedepaieComponent } from './fichedepaie/fichedepaie.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
+import { TableaudeserviceComponent } from './temps-de-travail/tableaudeservice/tableaudeservice.component';
+import { PointageComponent } from './pointage/pointage.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +41,8 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
     FormationComponent,
     FichedepaieComponent,
     ReclamationComponent,
+    TableaudeserviceComponent,
+    PointageComponent,
   ],
   imports: [
     BrowserModule,

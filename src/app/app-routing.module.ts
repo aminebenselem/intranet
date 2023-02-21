@@ -12,6 +12,8 @@ import { ForumComponent } from './forum/forum.component';
 import { EventComponent } from './event/event.component';
 import { FormationComponent } from './formation/formation.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
+import { TableaudeserviceComponent } from './temps-de-travail/tableaudeservice/tableaudeservice.component';
+import { PointageComponent } from './pointage/pointage.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent
@@ -24,22 +26,19 @@ const routes: Routes = [
   { path:'annuaire', component: AnnuaireComponent},
 
   { path:'acceuil', component: AcceuilComponent},
-  
-  { path:'tempdetravail', component: TempsDeTravailComponent },
-  
+
   { path:'agenda', component: AgendaComponent },
   
   { path:'actualites', component: ActualitesComponent },
   { path:'documents', component: DocumentsComponent },
   {path:'fichedepaie',component:FichedepaieComponent},
   {path:'reclamation',component:ReclamationComponent},
-  
-  
   { path:'forum', component: ForumComponent },
-  
   { path:'events', component: EventComponent },
   { path:'formation', component: FormationComponent },
-
+  {path:  'tempdetravail',component:  TempsDeTravailComponent},
+  {path:'tableaudeservice',component:TableaudeserviceComponent},
+ {path:'pointage',component:PointageComponent},
 
 ];
 
