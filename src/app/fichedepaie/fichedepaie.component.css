@@ -1,0 +1,24 @@
+
+
+.intro {
+    height: 100%;
+  }
+  .table{
+      border-radius: 1%;
+  }
+  table td,
+  table th {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  
+    
+  }
+  
+  
+  
+  
+  thead {
+    top: 0;
+    position: sticky;
+  }

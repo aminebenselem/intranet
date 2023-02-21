@@ -7,10 +7,12 @@ import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.com
 import { AgendaComponent } from './agenda/agenda.component';
 import { ActualitesComponent } from './actualites/actualites.component';
 import { DocumentsComponent } from './documents/documents.component';
-
+import { FichedepaieComponent } from './fichedepaie/fichedepaie.component';
 import { ForumComponent } from './forum/forum.component';
 import { EventComponent } from './event/event.component';
 import { FormationComponent } from './formation/formation.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
+
 const routes: Routes = [
   { path: 'login', component: LoginComponent
   },
@@ -29,6 +31,9 @@ const routes: Routes = [
   
   { path:'actualites', component: ActualitesComponent },
   { path:'documents', component: DocumentsComponent },
+  {path:'fichedepaie',component:FichedepaieComponent},
+  {path:'reclamation',component:ReclamationComponent},
+  
   
   { path:'forum', component: ForumComponent },
   
