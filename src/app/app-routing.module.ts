@@ -12,6 +12,7 @@ import { ForumComponent } from './forum/forum.component';
 import { EventComponent } from './event/event.component';
 import { FormationComponent } from './formation/formation.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
+import { DemandesComponent } from './demandes/demandes.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent
@@ -33,13 +34,11 @@ const routes: Routes = [
   { path:'documents', component: DocumentsComponent },
   {path:'fichedepaie',component:FichedepaieComponent},
   {path:'reclamation',component:ReclamationComponent},
-  
-  
   { path:'forum', component: ForumComponent },
-  
   { path:'events', component: EventComponent },
   { path:'formation', component: FormationComponent },
 
+  { path:'demandes', component: DemandesComponent },
 
 ];
 
