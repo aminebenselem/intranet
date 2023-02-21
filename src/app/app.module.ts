@@ -17,6 +17,9 @@ import { EventComponent } from './event/event.component';
 import { ActualitesComponent } from './actualites/actualites.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { ForumComponent } from './forum/forum.component';
+import { FichedepaieComponent } from './fichedepaie/fichedepaie.component';
+import { ReclamationComponent } from './reclamation/reclamation.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,8 +33,10 @@ import { ForumComponent } from './forum/forum.component';
     AgendaComponent,
     EventComponent,
     ActualitesComponent,
-    DocumentsComponent
-    ForumComponent
+    DocumentsComponent,
+    ForumComponent,
+    FichedepaieComponent,
+    ReclamationComponent,
   ],
   imports: [
     BrowserModule,
