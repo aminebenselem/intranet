@@ -17,6 +17,7 @@ import { EventComponent } from './event/event.component';
 import { ActualitesComponent } from './actualites/actualites.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { ForumComponent } from './forum/forum.component';
+import { FormationComponent } from './formation/formation.component';
 import { FichedepaieComponent } from './fichedepaie/fichedepaie.component';
 import { ReclamationComponent } from './reclamation/reclamation.component';
 
@@ -35,6 +36,7 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
     ActualitesComponent,
     DocumentsComponent,
     ForumComponent,
+    FormationComponent
     FichedepaieComponent,
     ReclamationComponent,
   ],

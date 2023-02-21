@@ -1,0 +1,13 @@
+.input-group{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+::-webkit-scrollbar{
+    display: none;
+}
+body{
+    overflow: hidden;
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
