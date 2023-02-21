@@ -36,7 +36,7 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
     ActualitesComponent,
     DocumentsComponent,
     ForumComponent,
-    FormationComponent
+    FormationComponent,
     FichedepaieComponent,
     ReclamationComponent,
   ],
