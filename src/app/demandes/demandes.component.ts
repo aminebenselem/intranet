@@ -7,9 +7,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DemandesComponent implements OnInit {
 step:any=1;
-travail:any=4;
-sociale:any;
-conge:any;
 selectedDemande:string='';
 demandes:any=[
   'Attestation de travail',
