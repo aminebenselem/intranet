@@ -16,6 +16,9 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
 import { DemandesComponent } from './demandes/demandes.component';
 import { TableaudeserviceComponent } from './temps-de-travail/tableaudeservice/tableaudeservice.component';
 import { PointageComponent } from './pointage/pointage.component';
+import { EventAdminComponent } from './event-admin/event-admin.component';
+import { AttestationdetravailAdminComponent } from './attestationdetravail-admin/attestationdetravail-admin.component';
+
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent
@@ -43,6 +46,8 @@ const routes: Routes = [
   {path:  'tempdetravail',component:  TempsDeTravailComponent},
   {path:'tableaudeservice',component:TableaudeserviceComponent},
  {path:'pointage',component:PointageComponent},
+ {path:'eventadmin',component:EventAdminComponent},
+ {path:'attestation-admin',component:AttestationdetravailAdminComponent},
 
 ];
 
