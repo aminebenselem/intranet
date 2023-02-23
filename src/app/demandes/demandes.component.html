@@ -69,9 +69,198 @@
     <!--STEP 2 IF DEMANDE CONGE-->
     <div class="row" *ngIf="selectedDemande=='Demande de congé'">
         <div class="form-group">
+        <!---->
+        <div class="contact-form">
+          <form action="/" method="post" class="contactform contact_form" id="contact_form">
+             <div class="returnmessage valid-feedback p-15px-b" data-success="Your message has been received, We will contact you soon."></div>
+             <div class="empty_notice invalid-feedback p-15px-b"><span>Please Fill Required Fields</span></div>
+                <div class="row">
+                 <div class="col-md-2">
+                  <div class="form-group">
+                    <input id="titre" type="text" placeholder="Matricule" class="form-control">  
+                </div>
+                
+                 </div> 
+                 <div class="col-md-4">
+                  <div class="form-group">
+                    <input id="Nom" type="text" placeholder="Nom et Prénom" class="form-control">  
+                </div>
+                
+                 </div>    
+                 <div class="col-md-6">
+                     <div class="form-group">
+                         <input id="Année" type="text" placeholder="Année" class="form-control">  
+                     </div>
+                 </div>
+                   
+                 </div>
+                 <br>
+                 <div class="row">
+                 
+                 <div class="col-md-2">
+                  <div class="form-group">
+                    <input id="titre" type="text" placeholder="Position" class="form-control">  
+                </div>
+                 </div>   
+                 <div class="col-md-3">
+                  <div class="form-group">
+                    <input id="titre" type="text" placeholder="temps" class="form-control">  
+                </div>
+                 </div>   
+                  <div class="col-md-1">
+                     <div class="form-group">
+                      <select  class="form-control custom-select-sm w-auto mr-1" >
+                        <option value="mixte">mixte</option>
+                        <option value="brigade">brigade</option>
+                    </select>
+                     </div>
+                 </div>
+                 <div class="col-6">
+                  <div class="form-group">
+                    <input id="titre" type="text" placeholder="temps" class="form-control">  
+                  </div>
+              </div>
+
+                 </div>
+                 <br>
+                 <div class="row">
+                     <div class="col-md-2">
+                      <div class="form-group"></div>
+                      <input id="titre" type="text" placeholder="solde initial" class="form-control">  
+                     </div>  
+                     <div class="col-md-2">
+                      <div class="form-group">
+                      <input id="titre" type="text" placeholder="droit de congé" class="form-control"> 
+                    </div> 
+                     </div> 
+                     <div class="col-md-1">
+                      <div class="form-group">
+                      <input id="titre" type="text" placeholder="congé pris" class="form-control">  
+                    </div>
+                     </div>
+                     <div class="col-md-2">
+                      <div class="form-group">
+                      <input id="titre" type="text" placeholder="solde a ce jour" class="form-control">  
+                    </div>
+                     </div>
+                     <div class="col-md-2">
+                      <div class="form-group">
+                      <input id="titre" type="text" placeholder="solde a ce jour" class="form-control">  
+                    </div>
+                     </div>
+                     <div class="col-md-1">
+                      <div class="form-group">
+                      <input id="titre" type="text" placeholder="Bonus" class="form-control">  
+                    </div>
+                     </div>
+                     <div class="col-md-2">
+                      <div class="form-group">
+                      <input id="titre" type="text" placeholder="congé pris en instance" class="form-control">  
+                     </div>
+                    </div>
+                  </div>
+                     <div class="row">
+                      <div class="col-md-2">
+                        <div class="form-group">
+                         <select  class="form-control custom-select-sm w-auto mr-1" >
+                           <option value="mixte">nature</option>
+                           <option value="brigade">congé annuaire</option>
+                       </select>
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                      <div class="form-group">
+                       <select  class="form-control custom-select-sm w-auto mr-1" >
+                         <option value="mixte">unité de congé</option>
+                         <option value="brigade">plein de temps</option>
+                     </select>
+                      </div>
+                  </div>
+                  <div class="col-md-1">
+                    <div class="form-group">
+                     <select  class="form-control custom-select-sm w-auto mr-1" >
+                       <option value="mixte">types jours</option>
+                       <option value="brigade">Calendaire</option>
+                   </select>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="form-group">
+                    <input id="titre" type="text" placeholder="Année en cours" class="form-control">  
+                  </div>
+              </div>
+              <div class="col-md-3">
+                <div class="form-group">
+                  <input id="titre" type="text" placeholder="Avance sur l'année" class="form-control">  
+                </div>
+            </div>
+                     </div>
+                     <br>
+                 
+             
+             <div class="row">
+          
+              <div class="col-md-2">
+                    <div class="form-group">
+                     <select  class="form-control custom-select-sm w-auto mr-1" >
+                       <option value="mixte">Séance debut (M/S)</option>
+                       <option value="brigade">Calendaire</option>
+                   </select>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                  <div class="form-group">
+                    <input id="titre" type="text" placeholder="Date début" class="form-control">  
+                  </div>
+              </div>
+              <div class="col-md-2">
+                <div class="form-group">
+                 <select  class="form-control custom-select-sm w-auto mr-1" >
+                   <option value="mixte">Séance fin (M/S)</option>
+                   <option value="brigade">aprés midi</option>
+               </select>
+                </div>
+            </div>
+            <div class="col-md-5">
+              <div class="form-group">
+              <input id="titre" type="text" placeholder="Date fin" class="form-control"> 
+            </div>
+          </div>
+
+            </div>
+            <br>
+            <div class="row">
+              <div class="col-md-4">
+              <div class="form-group">
+                <input id="titre" type="text" placeholder="NB jours Cal" class="form-control"> 
+              </div>
+            </div>
             <div class="col-md-4">
-            DEMANDE CONGE
-       </div>
+              <div class="form-group">
+                <input id="titre" type="text" placeholder="Nbr jours ouv" class="form-control"> 
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <input id="titre" type="text" placeholder="Nbr jours" class="form-control"> 
+              </div>
+            </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4">
+                <div class="form-group">
+                  <input id="titre" type="text" placeholder="Num Bo" class="form-control"> 
+                </div>
+              </div>
+              <div class="col-md-8">
+                <div class="form-group">
+                  <input id="titre" type="text" placeholder="Motif" class="form-control"> 
+                </div>
+              </div>
+            </div>
+             <br>
+         </form>
+     </div>
     </div>
 </div>
 <!--END STEP 2 IF DEMANDE CONGE-->

@@ -23,6 +23,8 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
 import { DemandesComponent } from './demandes/demandes.component';
 import { TableaudeserviceComponent } from './temps-de-travail/tableaudeservice/tableaudeservice.component';
 import { PointageComponent } from './pointage/pointage.component';
+import { EventAdminComponent } from './event-admin/event-admin.component';
+import { AttestationdetravailAdminComponent } from './attestationdetravail-admin/attestationdetravail-admin.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { PointageComponent } from './pointage/pointage.component';
     DemandesComponent,
     TableaudeserviceComponent,
     PointageComponent,
+    EventAdminComponent,
+    AttestationdetravailAdminComponent,
   ],
   imports: [
     BrowserModule,
