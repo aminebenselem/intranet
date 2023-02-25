@@ -16,6 +16,9 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
 import { DemandesComponent } from './demandes/demandes.component';
 import { TableaudeserviceComponent } from './temps-de-travail/tableaudeservice/tableaudeservice.component';
 import { PointageComponent } from './pointage/pointage.component';
+import { ActualitesAdminComponent } from './actualites-admin/actualites-admin.component';
+import { FormationAdminComponent } from './formation-admin/formation-admin.component';
+import { SuiviReclamationComponent } from './suivi-reclamation/suivi-reclamation.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent
@@ -43,6 +46,9 @@ const routes: Routes = [
   {path:  'tempdetravail',component:  TempsDeTravailComponent},
   {path:'tableaudeservice',component:TableaudeserviceComponent},
  {path:'pointage',component:PointageComponent},
+ {path:'actadmin',component:ActualitesAdminComponent},
+ {path:'formationadmin',component:FormationAdminComponent},
+ {path:'suivireclamation',component:SuiviReclamationComponent},
 
 ];
 
