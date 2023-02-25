@@ -27,6 +27,9 @@ import { ActualitesAdminComponent } from './actualites-admin/actualites-admin.co
 import { FormationAdminComponent } from './formation-admin/formation-admin.component';
 import { SuiviReclamationComponent } from './suivi-reclamation/suivi-reclamation.component';
 
+import { EventAdminComponent } from './event-admin/event-admin.component';
+import { AttestationdetravailAdminComponent } from './attestationdetravail-admin/attestationdetravail-admin.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +54,8 @@ import { SuiviReclamationComponent } from './suivi-reclamation/suivi-reclamation
     ActualitesAdminComponent,
     FormationAdminComponent,
     SuiviReclamationComponent,
+    EventAdminComponent,
+    AttestationdetravailAdminComponent,
   ],
   imports: [
     BrowserModule,
