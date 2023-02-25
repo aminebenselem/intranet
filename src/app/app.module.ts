@@ -23,6 +23,10 @@ import { ReclamationComponent } from './reclamation/reclamation.component';
 import { DemandesComponent } from './demandes/demandes.component';
 import { TableaudeserviceComponent } from './temps-de-travail/tableaudeservice/tableaudeservice.component';
 import { PointageComponent } from './pointage/pointage.component';
+import { ActualitesAdminComponent } from './actualites-admin/actualites-admin.component';
+import { FormationAdminComponent } from './formation-admin/formation-admin.component';
+import { SuiviReclamationComponent } from './suivi-reclamation/suivi-reclamation.component';
+
 import { EventAdminComponent } from './event-admin/event-admin.component';
 import { AttestationdetravailAdminComponent } from './attestationdetravail-admin/attestationdetravail-admin.component';
 
@@ -47,6 +51,9 @@ import { AttestationdetravailAdminComponent } from './attestationdetravail-admin
     DemandesComponent,
     TableaudeserviceComponent,
     PointageComponent,
+    ActualitesAdminComponent,
+    FormationAdminComponent,
+    SuiviReclamationComponent,
     EventAdminComponent,
     AttestationdetravailAdminComponent,
   ],
