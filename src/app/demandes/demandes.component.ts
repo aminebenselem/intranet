@@ -13,6 +13,13 @@ demandes:any=[
   'Demande sociale',
   'Demande de congé'
 ];
+socials:any=[
+  'demande avance sur salaire',
+  'demande prime de déces',
+  'demande prime de mariage',
+ 'demande convention Ooredoo',
+];
+social1:String='';
   constructor() { }
 
   ngOnInit(): void {
@@ -41,5 +48,9 @@ changeHandler(event:any){
   console.log(this.selectedDemande)
 
 }
+changeHandler2(event:any){
+  this.social1=event.target.value;
+  console.log(this.social1)
 
+}
 }
