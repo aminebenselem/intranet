@@ -1,6 +1,5 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { time } from 'console';
 import { StorageService } from '../services/storage.service';
 
 @Component({
@@ -10,10 +9,15 @@ import { StorageService } from '../services/storage.service';
 })
 export class EventComponent implements OnInit {
   events:any=[]
-   date :Date=new Date()
+  month:any=[
+    "Jan","Feb","Mar","Apr", "May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"
+
+  ]
+ 
   responses?:any;
   token=this.storage.getToken();
   baseURL:String="http://localhost:9090"
+  x:any=0;
   header=new HttpHeaders()
      .set("authorization","Bearer "+this.token);
  constructor(private http:HttpClient,private storage:StorageService) { }
@@ -26,7 +30,6 @@ this.getEvents()
     .subscribe({
       next: (res) => {this.responses=res,console.log(res);
         for(let response of this.responses){
-          response.date=new Date(response.date)
           this.events.push(response)
 
         }      
@@ -38,6 +41,11 @@ this.getEvents()
   });
   
   }
-
+getDay(date:any){
+  return  date.substring(8,10)
+}
+getMonth(date:any){
+return this.month[parseInt(date.substring(5,7))-1]
+}
   
 }
