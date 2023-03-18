@@ -14,7 +14,7 @@
                     <div class="col-md-5"></div>   
                     <div class="col-md-6">
                         <div class="form-group">
-                            <input id="titre" type="text" placeholder="titre" class="form-control">  
+                            <input id="titre"  [(ngModel)]="event.title" type="text" [ngModelOptions]="{standalone: true}" placeholder="titre" class="form-control">  
                         </div>
                     </div>
                       
@@ -25,7 +25,7 @@
                     <div class="col-md-5"></div>   
                      <div class="col-6">
                         <div class="form-group">
-                            <input id="date" type="date" class="form-control"> 
+                            <input id="date" type="date"  [(ngModel)]="event.date" [ngModelOptions]="{standalone: true}" class="form-control"> 
                         </div>
                         <br>
                     </div>
@@ -35,7 +35,7 @@
                         <div class="col-md-5"></div>  
                     <div class="col-md-6">
                         <div class="form-group">
-                            <textarea id="Description" placeholder="Description" class="form-control" rows="3"></textarea> 
+                            <textarea id="Description" placeholder="Description"  [(ngModel)]="event.description" [ngModelOptions]="{standalone: true}" class="form-control" rows="3"></textarea> 
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                         <div class="col-md-5"></div>   
                         <div class="col-md-6">
                         <div class="send">
-                            <a id="send_message" class="px-btn theme" href="#"><span>Envoyer</span> <i class="arrow"></i></a>
+                            <button id="send_message" class="px-btn theme" (click)="onSubmit()"  ><span>Envoyer</span> <i class="arrow"></i></button>
                         </div>
                        
                     </div>

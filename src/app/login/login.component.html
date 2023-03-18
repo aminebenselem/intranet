@@ -10,11 +10,11 @@
 				<img src="../../assets/Color_Matte.gif" style="height: 200px;width: 250px;"/>
 				<div class="login__field">
 					<i class="fa fa-user"></i>
-					<input type="text" class="login__input" [(ngModel)]="username" [ngModelOptions]="{standalone: true}" placeholder="Username">
+					<input type="text" class="login__input" [(ngModel)]="user.Mat_Pers" [ngModelOptions]="{standalone: true}" placeholder="Matricule">
 				</div>
 				<div class="login__field">
 					<i class="login__icon fa fa-lock"></i>
-					<input type="password" class="login__input" [(ngModel)]="password" [ngModelOptions]="{standalone: true}" placeholder="Password">
+					<input type="password" class="login__input" [(ngModel)]="user.MDP" [ngModelOptions]="{standalone: true}" placeholder="Password">
 				</div>
 				<button class="button login__submit" (click)="onSubmit()">
 					<span class="button__text">Log In</span>

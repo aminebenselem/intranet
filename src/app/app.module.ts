@@ -61,7 +61,8 @@ import { AttestationdetravailAdminComponent } from './attestationdetravail-admin
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    
     
   ],
   providers: [],
