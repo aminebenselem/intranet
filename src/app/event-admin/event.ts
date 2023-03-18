@@ -1,5 +1,5 @@
 export class Event{
-    date?:Date;
+    date?:String;
    title?:String;
    description?:String;
 
