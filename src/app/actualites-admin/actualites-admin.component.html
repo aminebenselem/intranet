@@ -19,24 +19,24 @@
                             
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input id="titre" type="text" placeholder="Titre" class="form-control">  
+                                    <input id="titre" type="text" [(ngModel)]="act.title" type="text" [ngModelOptions]="{standalone: true}" placeholder="Titre" class="form-control">  
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <input id="titre" type="text" placeholder="Sujet" class="form-control">  
+                                    <input id="sujet" type="text" [(ngModel)]="act.type" type="text" [ngModelOptions]="{standalone: true}" placeholder="Sujet" class="form-control">  
                                 </div>
                                 <br>
                             </div>
                             <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
-                                    <input type="date" value="2023-05-24"  class="form-control" id="4">
+                                    <input type="date" value="2023-05-24" [(ngModel)]="act.date" [ngModelOptions]="{standalone: true}" class="form-control" id="4">
                                 </div>
                                 <br>
                                 <div class="form-group">
                                     <label for="image" class="btn btn-primary">Choisir une image</label>
 
-                                    <input type="file"   class="form-control" id="image" style="display: none;" >
+                                    <input type="file" (change)="selectFile($event);getFileUri($event)"  class="form-control" id="image" style="display: none;">
 
                                 </div>
                                 <br>
@@ -45,13 +45,13 @@
                             
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea id="description" placeholder="Description" class="form-control" rows="3"></textarea> 
+                                    <textarea id="description" [(ngModel)]="act.description" type="text" [ngModelOptions]="{standalone: true}" placeholder="Description" class="form-control" rows="3"></textarea> 
                                 </div>
                             </div>
                             <br> <br> <br> <br> <br>
                             <div class="col-md-12">
                                 <div class="send">
-                                    <a id="send_message" class="px-btn theme" href="#"><span>Ajouter</span> <i class="arrow"></i></a>
+                                    <button (click)="onSubmit();reloadPage()" id="send_message" class="px-btn theme" href="#"><span>Ajouter</span> <i class="arrow"></i></button>
                                 </div>
                                
                             </div>

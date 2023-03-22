@@ -17,8 +17,7 @@ export class EventComponent implements OnInit {
   responses?:any;
   token=this.storage.getToken();
   baseURL:String="http://localhost:9090"
-  x:any=0;
-  header=new HttpHeaders()
+    header=new HttpHeaders()
      .set("authorization","Bearer "+this.token);
  constructor(private http:HttpClient,private storage:StorageService) { }
 
@@ -42,7 +41,8 @@ this.getEvents()
   
   }
 getDay(date:any){
-  return  date.substring(8,10)
+  
+  return   parseInt( date.substring(8,10))
 }
 getMonth(date:any){
 return this.month[parseInt(date.substring(5,7))-1]
