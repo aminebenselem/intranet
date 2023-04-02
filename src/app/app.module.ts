@@ -30,6 +30,7 @@ import { SuiviReclamationComponent } from './suivi-reclamation/suivi-reclamation
 import { EventAdminComponent } from './event-admin/event-admin.component';
 import { AttestationdetravailAdminComponent } from './attestationdetravail-admin/attestationdetravail-admin.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,6 +57,7 @@ import { AttestationdetravailAdminComponent } from './attestationdetravail-admin
     SuiviReclamationComponent,
     EventAdminComponent,
     AttestationdetravailAdminComponent,
+   
   ],
   imports: [
     BrowserModule,
