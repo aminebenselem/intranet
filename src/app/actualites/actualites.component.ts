@@ -8,12 +8,14 @@ import { StorageService } from '../services/storage.service';
   styleUrls: ['./actualites.component.css']
 })
 export class ActualitesComponent implements OnInit {
+  image="http://localhost:9090/image/image19122.jpg"
   fileToUpload: File | null = null;
   actualite:any=[]
   month:any=[
     "Jan","Feb","Mar","Apr", "May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"
 
   ]
+uri:any=[]
 
   
  responses?:any;
@@ -21,6 +23,7 @@ export class ActualitesComponent implements OnInit {
  baseURL:String="http://localhost:9090"
  header=new HttpHeaders()
     .set("authorization","Bearer "+this.token);
+
 constructor(private http:HttpClient,private storage:StorageService) { }
 
   ngOnInit(): void {
@@ -49,9 +52,9 @@ getMonth(date:any){
 return this.month[parseInt(date.substring(5,7))-1]
 }
 getimage(){
-  return this.http.get(this.responses.act.uri,{headers:this.header})
+  return this.http.get("http://localhost:9090/image/image19122.jpg",{headers:this.header})
   .subscribe({
-    next: (res) => {console.log(res);},
+    next: (res) => {res},
 error: (err) => console.log(err),
 complete: () => console.log("")
 

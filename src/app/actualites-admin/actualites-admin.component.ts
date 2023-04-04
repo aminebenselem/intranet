@@ -11,13 +11,14 @@ import { Act } from './act';
   templateUrl: './actualites-admin.component.html',
   styleUrls: ['./actualites-admin.component.css']
 })
+
 export class ActualitesAdminComponent implements OnInit {
   file!: File;
   fileDetails!: FileDetails;
   fileUris: Array<string> = [];
 act:Act=new Act()
 response:any
-  
+  filename:string=""
 token=this.storage.getToken();
 baseURL:String="http://localhost:9090"
 header=new HttpHeaders()
@@ -27,13 +28,15 @@ constructor(private storage:StorageService,private http:HttpClient,private fileU
 ngOnInit(): void {
 }
 onSubmit(){
+  this.filename=this.getFilename(this.file)
   this.uploadFile()
+  this.act.uri=this.getFileUri()
   let data=JSON.parse( JSON.stringify(this.act));
   return this.http.post(this.baseURL+"/newact",data,{headers:this.header})
 .subscribe({
-  next: (res) => {this.response=res,console.log(res),this.act.uri[0]=""},
-error: (err) => {console.log(err),this.act.uri[0]=""},
-complete: () => {console.log(""),this.act.uri[0]=""}
+  next: (res) => {this.response=res,console.log(res)},
+error: (err) => {console.log(err)},
+complete: () => {console.log("")}
 
 });
 
@@ -43,13 +46,15 @@ reloadPage() {
 }
 selectFile(event: any) {
   this.file = event.target.files.item(0);
+  this.file
 }
- getFileUri(event: any){
- this.act.uri.push("http://localhost:9090/image/"+event.target.files.item(0).name);
+ getFileUri(){
+ 
+return this.act.uri="http://localhost:9090/image/"+this.filename;
 
 }
 uploadFile() {
-  this.fileUploadService.upload(this.file).subscribe({
+  this.fileUploadService.upload(this.file,this.filename).subscribe({
     next: (data) => {
       {this.fileDetails = data,console.log(data)};
       this.fileUris.push(this.fileDetails.fileUri);
@@ -60,4 +65,18 @@ uploadFile() {
     }
   });
 }
+
+  
+
+  getWord(minLength: number = 4, maxLength: number = 10):any {
+    return Math.trunc(Math.random() * (100000));
+  
+  }
+  getFilename(file: File){
+    let filename=file.name
+    let extension =filename.substring(filename.lastIndexOf('.')+1, filename.length) || filename;
+   return filename.substring(0,filename.lastIndexOf('.')-1)+this.getWord()+'.'+extension;
+  
+  }
 }
+

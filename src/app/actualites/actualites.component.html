@@ -14,7 +14,7 @@
         <div *ngFor="let act of actualite" class="col-lg-4 col-md-6 mt-4 pt-2">
             <div  class="blog-post rounded border">
                 <div  class="blog-img d-block overflow-hidden position-relative">
-                    <img [src]="getimage()" class="img-fluid rounded-top" alt="">
+                    <img src={{act?.uri}} class="img-fluid rounded-top" alt="">
                     <div class="overlay rounded-top bg-dark"></div>
                     <div class="post-meta">
                         <a href="javascript:void(0)" class="text-light d-block text-right like"><i class="mdi mdi-heart"></i> 33</a>
@@ -23,7 +23,7 @@
                 </div>
                 <div class="content p-3">
                     <small class="text-muted p float-right">{{getMonth(act?.date)}},{{getDay(act?.date)}}</small>
-                    <small><a href="javascript:void(0)" class="text-primary">Marketing</a></small>
+                    <small><a href="javascript:void(0)" class="text-primary">{{act?.type}}</a></small>
                     <h4 class="mt-2"><a href="javascript:void(0)" class="text-dark title">{{act?.title}}</a></h4>
                     <p class="text-muted mt-2">{{act?.description}}</p>
                     

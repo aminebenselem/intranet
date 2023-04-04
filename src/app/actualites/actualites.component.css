@@ -20,7 +20,10 @@ thead {
       -webkit-transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s;
       transition: all 0.5s cubic-bezier(0.68, -0.55, 0.27, 1.55) 0s;
     }
-    
+    .blog-post .blog-img{
+      height: 200px;
+      width:180
+    }
     
     .blog-post .blog-img .overlay,
     .blog-post .blog-img .post-meta {
