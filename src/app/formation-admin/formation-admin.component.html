@@ -19,45 +19,49 @@
                             
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input id="titre" type="text" placeholder="Titre" class="form-control">  
+                                    <input id="titre" type="text" placeholder="Titre" class="form-control"  [(ngModel)]="formation.title" [ngModelOptions]="{standalone: true}">  
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <input id="categorie" type="text" placeholder="Catégorie" class="form-control">  
+                                    <input id="categorie" type="text" placeholder="Catégorie" class="form-control" [(ngModel)]="formation.categorie" [ngModelOptions]="{standalone: true}">  
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <input id="theme" type="text" placeholder="Théme" class="form-control">  
+                                    <input id="theme" type="text" placeholder="Théme" class="form-control" [(ngModel)]="formation.theme" [ngModelOptions]="{standalone: true}">  
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <input id="cabinet" type="text" placeholder="Cabinet" class="form-control">  
+                                    <input id="cabinet" type="text" placeholder="Cabinet" class="form-control" [(ngModel)]="formation.cabinet" [ngModelOptions]="{standalone: true}">  
                                 </div>
                                 <br>
                                 <div class="form-group">
-                                    <input id="formateur" type="text" placeholder="Formateur" class="form-control">  
+                                    <input id="formateur" type="text" placeholder="Formateur" class="form-control" [(ngModel)]="formation.formateur" [ngModelOptions]="{standalone: true}">  
                                 </div>
                                 <br>
                             </div>
                             <div class="row">
                             <div class="col-6">
                                 <div class="col-6">
-                                    <select  class="form-control custom-select-sm w-auto mr-1">
-                                      <option selected="">2023</option>
-                                      <option value="1">2022</option>
-                                      <option value="3">2021</option>
-                                      <option value="3">2020</option>
-                                      <option value="3">2019</option>
-                                  </select>
+                                    Date debut
+                                        <div class="col-md-6">
+                                            <input type="date" value="2017-06-01"   class="form-control" [(ngModel)]="formation.datedb" [ngModelOptions]="{standalone: true}" id="4">
+                                         </div>
                                   <br>
                                   </div>
+                                  <div class="col-md-6">
+                                    Date fin
+                                  <div class="col-md-6">
+                                    <input type="date" value="2017-06-01"   class="form-control"[(ngModel)]="formation.datefn" [ngModelOptions]="{standalone: true}" id="4">
+                                 </div>
+                                </div>
                                 
                             </div>
+                            
                         </div>
                             <br> <br> <br> <br> <br>
                             <div class="col-md-12">
                                 <div class="send">
-                                    <a id="send_message" class="px-btn theme" href="#"><span>Ajouter</span> <i class="arrow"></i></a>
+                                    <a id="send_message" class="px-btn theme" (click)="addFormation()"><span>Ajouter</span> <i class="arrow"></i></a>
                                 </div>
                                
                             </div>
