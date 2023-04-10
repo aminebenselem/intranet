@@ -9,7 +9,7 @@ import { StorageService } from '../services/storage.service';
 })
 export class AnnuaireComponent implements OnInit {
  users:any=[]
-   response?:any;
+   responses?:any=[];
    token=this.storage.getToken();
    baseURL:String="http://localhost:9090"
    header=new HttpHeaders()
@@ -20,15 +20,15 @@ export class AnnuaireComponent implements OnInit {
     this.getUsers()
   }
 getUsers(){
+
   return this.http.get(this.baseURL+"/users",{headers:this.header})
   .subscribe({
-    next: (res) => {this.response=res;
-      
-      for (let i = 0; i < 495; i++) {
-        
-       this.users.push(this.response[i])
-      
+    next: (res) => {this.responses=res;
+      for(let i=0;i<495;i++){
+        console.log(this.responses[i])
+       this.users.push(this.responses[i])
       }
+      
     },
 error: (err) => console.log(err),
 complete: () => console.log("")

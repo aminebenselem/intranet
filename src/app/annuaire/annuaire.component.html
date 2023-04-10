@@ -24,12 +24,12 @@
                         </tr>
                       </thead>
                       <tbody style="-webkit-text-fill-color: rgb(5, 5, 5);">
-                        <tr *ngFor="let user of users ">
-                          <td>{{user?.Mat_Pers}}</td>
-                          <td>{{user?.NOM_PERS}}</td>
-                          <td>{{user?.PREN_PERS}}</td>
-                          <td>{{user?.DAT_NAIS}}</td>
-                          <td>Email</td>
+                        <tr *ngFor="let user of users;let index=index ">
+                          <td>{{user.uniform}}</td>
+                          <td>{{user.nom_PERS}}</td>
+                          <td>{{user.pren_PERS}}</td>
+                          <td>{{user.suspens_ASS}}</td>
+                          <td>{{user.suspens_ASS}}</td>
                         </tr>
                         
                       </tbody>
