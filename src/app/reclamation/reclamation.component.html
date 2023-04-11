@@ -19,14 +19,14 @@
                             
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <input id="email" type="text" placeholder="Email Address" class="form-control">  
+                                    <input id="email" type="text" placeholder="Email Address"  [(ngModel)]="reclamation.email" [ngModelOptions]="{standalone: true}"class="form-control">  
                                 </div>
                                 <br>
                             </div>
                             <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
-                                    <input id="subject" type="text" placeholder="Subject" class="form-control"> 
+                                    <input id="subject" type="text"  [(ngModel)]="reclamation.subject" [ngModelOptions]="{standalone: true}" placeholder="Subject" class="form-control"> 
                                 </div>
                                 <br>
                             </div>
@@ -34,13 +34,13 @@
                             
                             <div class="col-md-6">
                                 <div class="form-group">
-                                    <textarea id="message" placeholder="Message" class="form-control" rows="3"></textarea> 
+                                    <textarea id="message" placeholder="Message"  [(ngModel)]="reclamation.message" [ngModelOptions]="{standalone: true}"class="form-control" rows="3"></textarea> 
                                 </div>
                             </div>
                             <br> <br> <br> <br> <br>
                             <div class="col-md-12">
                                 <div class="send">
-                                    <a id="send_message" class="px-btn theme" href="#"><span>Envoyer</span> <i class="arrow"></i></a>
+                                    <a id="send_message" class="px-btn theme" (click)="ajouterReclamation()"><span>Envoyer</span> <i class="arrow"></i></a>
                                 </div>
                                
                             </div>
@@ -53,7 +53,7 @@
                 <div class="contact-name" style="padding-left:15% ;">
                     <h5>Département</h5>
                     <div class="col-lg-6"style="width: 300px;">
-                        <select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
+                        <select class="form-select form-select-lg mb-3"  [(ngModel)]="reclamation.departement" [ngModelOptions]="{standalone: true}" aria-label=".form-select-lg example">
                             <option selected>département informatique</option>
                             <option value="1">département technique</option>
                             <option value="2">département ...</option>

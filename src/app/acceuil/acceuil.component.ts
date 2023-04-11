@@ -6,6 +6,8 @@ import { StorageService } from '../services/storage.service';
 import { User } from '../login/user';
 import { Password } from './Password';
 import { Router } from '@angular/router';
+import { email } from './email';
+
 
 @Component({
   selector: 'app-acceuil',
@@ -14,7 +16,9 @@ import { Router } from '@angular/router';
 })
 export class AcceuilComponent implements OnInit {
   error:any
+
  User:User = new User();
+ email:email = new email();
  x:Password = new Password();
   response:any
    myModal:any
@@ -47,6 +51,7 @@ getUser(){
 error: (err) =>{if(this.error.code==403){
   this.route.navigate(["/403"])
 }} ,
+
 complete: () => console.log("")
 
 });

@@ -54,16 +54,22 @@
                                     <input type="date" value="2017-06-01"   class="form-control"[(ngModel)]="formation.datefn" [ngModelOptions]="{standalone: true}" id="4">
                                  </div>
                                 </div>
-                                
+                                <br>
+                                <div class="form-group">
+                                    <label for="image" class="btn btn-primary">Choisir une image</label>
+
+                                    <input type="file" (change)="selectFile($event);"  class="form-control" id="image" style="display: none;">
+
+                                </div>
                             </div>
                             
                         </div>
                             <br> <br> <br> <br> <br>
                             <div class="col-md-12">
                                 <div class="send">
-                                    <a id="send_message" class="px-btn theme" (click)="addFormation()"><span>Ajouter</span> <i class="arrow"></i></a>
+                                    <button (click)="onSubmit()" id="send_message" class="px-btn theme" ><span>Ajouter</span> <i class="arrow"></i></button>
                                 </div>
-                               
+
                             </div>
                             
                         </div>

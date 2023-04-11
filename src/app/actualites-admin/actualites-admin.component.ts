@@ -57,7 +57,7 @@ return this.act.uri="http://localhost:9090/image/"+this.filename;
 
 }
 uploadFile() {
-  this.fileUploadService.upload(this.file,this.filename).subscribe({
+  this.fileUploadService.upload(this.file,this.filename,"/upload").subscribe({
     next: (data) => {
       {this.fileDetails = data,console.log(data)};
       this.fileUris.push(this.fileDetails.fileUri);
