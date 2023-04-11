@@ -1,6 +1,7 @@
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-actualites',
@@ -24,9 +25,13 @@ uri:any=[]
  header=new HttpHeaders()
     .set("authorization","Bearer "+this.token);
 
-constructor(private http:HttpClient,private storage:StorageService) { }
+constructor(private http:HttpClient,private storage:StorageService,private route:Router) { }
 
   ngOnInit(): void {
+    
+    if(this.token==''){
+      this.route.navigate(["/403"])
+    }
     this.getallactualite();
   }
 getallactualite(){
@@ -51,13 +56,5 @@ getDay(date:any){
 getMonth(date:any){
 return this.month[parseInt(date.substring(5,7))-1]
 }
-getimage(){
-  return this.http.get("http://localhost:9090/image/image19122.jpg",{headers:this.header})
-  .subscribe({
-    next: (res) => {res},
-error: (err) => console.log(err),
-complete: () => console.log("")
 
-});
-}
 }

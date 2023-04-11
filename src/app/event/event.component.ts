@@ -1,6 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../services/storage.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-event',
@@ -19,9 +20,13 @@ export class EventComponent implements OnInit {
   baseURL:String="http://localhost:9090"
     header=new HttpHeaders()
      .set("authorization","Bearer "+this.token);
- constructor(private http:HttpClient,private storage:StorageService) { }
+ constructor(private http:HttpClient,private storage:StorageService,private route:Router) { }
 
   ngOnInit(): void {
+    
+    if(this.token==''){
+      this.route.navigate(["/403"])
+    }
 this.getEvents()
   }
   getEvents(){

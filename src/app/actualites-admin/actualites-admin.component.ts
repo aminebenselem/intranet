@@ -26,6 +26,10 @@ header=new HttpHeaders()
 constructor(private storage:StorageService,private http:HttpClient,private fileUploadService: FileUploadService, private router: Router) { }
 
 ngOnInit(): void {
+  
+  if(this.token==''){
+    this.router.navigate(["/403"])
+  }
 }
 onSubmit(){
   this.filename=this.getFilename(this.file)
@@ -46,7 +50,6 @@ reloadPage() {
 }
 selectFile(event: any) {
   this.file = event.target.files.item(0);
-  this.file
 }
  getFileUri(){
  

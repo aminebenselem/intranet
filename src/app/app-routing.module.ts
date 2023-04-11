@@ -22,6 +22,7 @@ import { SuiviReclamationComponent } from './suivi-reclamation/suivi-reclamation
 import { EventAdminComponent } from './event-admin/event-admin.component';
 import { AttestationdetravailAdminComponent } from './attestationdetravail-admin/attestationdetravail-admin.component';
 import { LogoutComponent } from './logout/logout.component';
+import { E403Component } from './e403/e403.component';
 
 
 const routes: Routes = [
@@ -55,7 +56,8 @@ const routes: Routes = [
  {path:'suivireclamation',component:SuiviReclamationComponent},
  {path:'eventadmin',component:EventAdminComponent},
  {path:'attestation-admin',component:AttestationdetravailAdminComponent},
- {path:'logout',component:LogoutComponent}
+ {path:'logout',component:LogoutComponent},
+ {path:'403',component:E403Component}
 ];
 
 @NgModule({

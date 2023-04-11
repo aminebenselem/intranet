@@ -29,6 +29,7 @@ import { SuiviReclamationComponent } from './suivi-reclamation/suivi-reclamation
 
 import { EventAdminComponent } from './event-admin/event-admin.component';
 import { AttestationdetravailAdminComponent } from './attestationdetravail-admin/attestationdetravail-admin.component';
+import { E403Component } from './e403/e403.component';
 
 
 @NgModule({
@@ -57,6 +58,7 @@ import { AttestationdetravailAdminComponent } from './attestationdetravail-admin
     SuiviReclamationComponent,
     EventAdminComponent,
     AttestationdetravailAdminComponent,
+    E403Component,
    
   ],
   imports: [
