@@ -6,4 +6,5 @@ export class formation  {
    formateur?:String;
    datedb?:Date;
    datefn?:Date;
+   uri?:any;
   }

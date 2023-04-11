@@ -57,7 +57,7 @@
                       <h6 class="mb-0">Email</h6>
                     </div>
                     <div class="col-sm-7 text-secondary">
-                      fip@jukmuh.al
+                      {{response?.email}}
                     </div>
                     <div class="col-sm-2">
                       <div class="inner-sidebar-header justify-content-center">
@@ -73,7 +73,7 @@
                       <h6 class="mb-0">Numéro de téléphone</h6>
                     </div>
                     <div class="col-sm-7 text-secondary">
-                      (239) 816-9029
+                      {{response?.numerodetelephone}}
                     </div>
                     <div class="col-sm-2">
                     <div class="inner-sidebar-header justify-content-center">
@@ -224,7 +224,7 @@
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="threadTitle">Email</label>
-                            <input type="text" class="form-control" [(ngModel)]="User.MDP" [ngModelOptions]="{standalone: true}" id="threadTitle" placeholder="Entrer ton nouveau email" autofocus="" />
+                            <input type="email" class="form-control" [(ngModel)]="User.MDP" [ngModelOptions]="{standalone: true}" id="threadTitle" placeholder="Entrer ton nouveau email" autofocus="" />
                         </div>
                         
                     </div>
