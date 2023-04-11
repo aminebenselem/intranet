@@ -3,5 +3,5 @@ export class Act{
    title?:String;
    description?:String;
    type?:String;
-   uri?:any=[];
+   uri?:any;
 }
