@@ -4,6 +4,7 @@ import { StorageService } from '../services/storage.service';
 import { User } from '../login/user';
 import { agenda } from './agenda';
 import { Console } from 'console';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-agenda',
@@ -23,9 +24,13 @@ export class AgendaComponent implements OnInit
     header=new HttpHeaders()
        .set("authorization","Bearer "+this.token);
   User: any;
-   constructor(private http:HttpClient,private storage:StorageService) { }
+   constructor(private http:HttpClient,private storage:StorageService,private route:Router) { }
  
    ngOnInit(): void {
+    
+    if(this.token==''){
+      this.route.navigate(["/403"])
+    }
      this.gettasks()
    }
  gettasks(){

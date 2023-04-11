@@ -25,7 +25,6 @@ getUsers(){
   .subscribe({
     next: (res) => {this.responses=res;
       for(let i=0;i<495;i++){
-        console.log(this.responses[i])
        this.users.push(this.responses[i])
       }
       

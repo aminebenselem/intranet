@@ -3,9 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Modal } from 'bootstrap';
 import { StorageService } from '../services/storage.service';
 
-import { Observable } from 'rxjs';
 import { User } from '../login/user';
 import { Password } from './Password';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-acceuil',
@@ -13,6 +13,7 @@ import { Password } from './Password';
   styleUrls: ['./acceuil.component.css']
 })
 export class AcceuilComponent implements OnInit {
+  error:any
  User:User = new User();
  x:Password = new Password();
   response:any
@@ -23,9 +24,13 @@ export class AcceuilComponent implements OnInit {
 baseURL:String="http://localhost:9090"
 header=new HttpHeaders()
    .set("authorization","Bearer "+this.token);
-  constructor(private http:HttpClient,private storage:StorageService) { }
+  constructor(private http:HttpClient,private storage:StorageService,private route:Router) { }
 
   ngOnInit(): void {
+    
+    if(this.token==''){
+      this.route.navigate(["/403"])
+    }
 this.getUser()
 var element = document.getElementById('threadModal') as HTMLElement;
  this.myModal = new Modal(element);
@@ -39,7 +44,9 @@ getUser(){
  return this.http.get(this.baseURL+"/users/"+this.storage.getUser(),{headers:this.header})
   .subscribe({
     next: (res) => {this.response=res},
-error: (err) => console.log(err),
+error: (err) =>{if(this.error.code==403){
+  this.route.navigate(["/403"])
+}} ,
 complete: () => console.log("")
 
 });

@@ -16,20 +16,20 @@
                     <table class="table table-striped  mb-0" style="background-color: rgb(255, 255, 255);">
                       <thead >
                         <tr class="text-uppercase">
-                          <th scope="col">Matricule</th>
+                          
                           <th scope="col">Nom</th>
                           <th scope="col">Prénom</th>
-                          <th scope="col">Date de naissance</th>
+                          <th scope="col">Numero de telephone</th>
                           <th scope="col">Email</th>
                         </tr>
                       </thead>
                       <tbody style="-webkit-text-fill-color: rgb(5, 5, 5);">
                         <tr *ngFor="let user of users;let index=index ">
-                          <td>{{user.uniform}}</td>
+                         
                           <td>{{user.nom_PERS}}</td>
                           <td>{{user.pren_PERS}}</td>
-                          <td>{{user.suspens_ASS}}</td>
-                          <td>{{user.suspens_ASS}}</td>
+                          <td>{{user.numerodetelephone}}</td>
+                          <td>{{user.email}}</td>
                         </tr>
                         
                       </tbody>
