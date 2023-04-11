@@ -6,6 +6,7 @@ import { StorageService } from '../services/storage.service';
 import { Observable } from 'rxjs';
 import { User } from '../login/user';
 import { Password } from './Password';
+import { email } from './email';
 
 @Component({
   selector: 'app-acceuil',
@@ -13,7 +14,7 @@ import { Password } from './Password';
   styleUrls: ['./acceuil.component.css']
 })
 export class AcceuilComponent implements OnInit {
- User:User = new User();
+ User:User = new User(); email:email = new email();
  x:Password = new Password();
   response:any
    myModal:any
@@ -38,7 +39,9 @@ getUser(){
   
  return this.http.get(this.baseURL+"/users/"+this.storage.getUser(),{headers:this.header})
   .subscribe({
-    next: (res) => {this.response=res},
+    next: (res) => {this.response=res
+      console.log(this.response);
+},
 error: (err) => console.log(err),
 complete: () => console.log("")
 
