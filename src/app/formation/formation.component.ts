@@ -18,13 +18,16 @@ export class FormationComponent implements OnInit {
     baseURL:String="http://localhost:9090"
     header=new HttpHeaders()
        .set("authorization","Bearer "+this.token)
-
+       header1=new HttpHeaders()
+       .set("authorization","Bearer "+this.token)
+       .set("Content-Type","image/jpg");
+       blob: any;
        
   User: any;
    constructor(private http:HttpClient,private storage:StorageService,private ss:DownloadService) { }
   ngOnInit(): void {
     this.getFormation()
-    this.download()
+    
     }
   getFormation(){
     return this.http.get(this.baseURL+"/getallformation",{headers:this.header})
@@ -42,19 +45,26 @@ export class FormationComponent implements OnInit {
   });
   }
  
-  download() {
-    return this.http.get( "http://localhost:9090/formation/vgr60797.dll",{headers:this.header})
+  download(url:any,filename:any) {
+    return this.ss.download(url)
     .subscribe({
-      next: (res) => {
-       this.response=res;
-       
-     
-         console.log(this.response)
+      next: (data) => {
+        console.log(data)
+  this.blob = new Blob([data], {type: 'application/pdf'});
+
+  var downloadURL = window.URL.createObjectURL(data);
+  var link = document.createElement('a');
+  link.href = downloadURL;
+  link.download = filename;
+  link.click();
         
       },
   error: (err) => console.log(err),
   complete: () => console.log("")
   
   });
+  }
+  getfilename(url:any){
+return url.substring(url.lastIndexOf('/'),url.length)
   }
 }

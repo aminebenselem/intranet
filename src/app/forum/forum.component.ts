@@ -33,9 +33,7 @@ header=new HttpHeaders()
 
   ngOnInit(): void {
     
-    if(this.token==''){
-      this.route.navigate(["/403"])
-    }
+    
     this.getForums();
 var element = document.getElementById('threadModal') as HTMLElement;
  this.myModal = new Modal(element);
@@ -81,8 +79,8 @@ getForumByid(event:any){
   
   });
 }
-getReplies(event:any){
-  let id=event.target.id
+getReplies(id:any){
+
   return this.http.get(this.baseURL+"/forums/"+id+"/replies",{headers:this.header})
   .subscribe({
     next: (res) => {console.log(res),this.replies=res},
@@ -97,7 +95,7 @@ open(){
 close(){
   this.isopened=false
 }
-async Reply(){
+Reply(){
 this.reply.forum.id=this.forum1.id;
 this.reply.user.mat_Pers=this.storage.getUser();
   let data=JSON.parse( JSON.stringify(this.reply));

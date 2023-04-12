@@ -1,3 +1,4 @@
+<app-header></app-header>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous" />
 
 <section class="section gray-bg" id="contactus">
@@ -12,104 +13,94 @@
             <div class="col-md-7 col-lg-8 m-15px-tb">
                 <div class="contact-form">
                      
-<div class="row">
-    <div class="col-8">
-                    <div class="inner-main-body p-2 p-sm-3 collapse forum-content show" style="width: 150%;">
-                        <div class="card mb-2">
+                    <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
+                      <div *ngFor="let forum of reclamations">
+                        <div class="card mb-2"  *ngIf="role==forum.departement">
                             <div class="card-body p-2 p-sm-3">
                                 <div class="media forum-item">
                                     <a href="#" data-bs-toggle="collapse" data-bs-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
                                     <div class="media-body">
-                                        <h6><a href="#" data-bs-toggle="collapse" data-bs-target=".forum-content" class="text-body">Realtime fetching data</a></h6>
+                                        <h6><a href="#" [id]="forum.id" (click)="getForumByid($event);getReplies(forum.id)" data-bs-toggle="collapse" data-bs-target=".forum-content" class="text-body">{{forum.subject}}</a></h6>
                                         <p class="text-secondary">
-                                            lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
+                                            {{forum.message}}
                                         </p>
-                                        <p class="text-muted"><a href="javascript:void(0)">drewdan</a> replied <span class="text-secondary font-weight-bold">13 minutes ago</span></p>
                                     </div>
                                     <div class="text-muted small text-center align-self-center">
-                                        <span><i class="far fa-comment ml-2"></i> 3</span>
+                                        <span><i class="far fa-comment ml-2"></i>{{forum.replycount}}</span>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-</div>                   
-</div>   
-<div class="inner-main-body p-2 p-sm-3 collapse forum-content" style="width: 150%;">
-    <a href="#" class="btn btn-light btn-sm mb-3 has-icon" data-bs-toggle="collapse" data-bs-target=".forum-content"><i class="fa fa-arrow-left mr-2"></i>Back</a>
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="media forum-item">
-                <a href="javascript:void(0)" class="card-link">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
-                    <small class="d-block text-center text-muted">Newbie</small>
-                </a>
-                <div class="media-body ml-3">
-                    <a href="javascript:void(0)" class="text-secondary">Mokrani</a>
-                    <small class="text-muted ml-2">1 hour ago</small>
-                    <h5 class="mt-1">Realtime fetching data</h5>
-                    <div class="mt-3 font-size-sm">
-                        <p>Hellooo :)</p>
-                        <p>
-                            I'm newbie with laravel and i want to fetch data from database in realtime for my dashboard anaytics and i found a solution with ajax but it dosen't work if any one have a simple solution it will be
-                            helpful
-                        </p>
-                        <p>Thank</p>
                     </div>
-                </div>
-                <div class="text-muted small text-center">
-                    <span><i class="far fa-comment ml-2"></i> 3</span>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card mb-2">
-        <div class="card-body">
-            <div class="media forum-item">
-                <a href="javascript:void(0)" class="card-link">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle" width="50" alt="User" />
-                    <small class="d-block text-center text-muted">Pro</small>
-                </a>
-                <div class="media-body ml-3">
-                    <a href="javascript:void(0)" class="text-secondary">drewdan</a>
-                    <small class="text-muted ml-2">1 hour ago</small>
-                    <div class="mt-3 font-size-sm">
-                        <p>What exactly doesn't work with your ajax calls?</p>
-                        <p>Also, WebSockets are a great solution for realtime data on a dashboard. Laravel offers this out of the box using broadcasting</p>
-                    </div>
-                    <button class="btn btn-xs text-muted has-icon"><i class="fa fa-heart" aria-hidden="true"></i>1</button>
-                    <a href="javascript:void(0)" class="text-muted small">Reply</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-</div>     
-<div class="row">
-    <div class="col-8">
-                    <div class="inner-main-body p-2 p-sm-3 collapse forum-content show" style="width: 150%;">
+                    <!-- /Forum List -->
+        
+                    <!-- Forum Detail -->
+                    <div class="inner-main-body p-2 p-sm-3 collapse forum-content">
+                        <a href="#" class="btn btn-light btn-sm mb-3 has-icon" data-bs-toggle="collapse" data-bs-target=".forum-content"><button class="btn" (click)="reload()"><i class="fa fa-arrow-left mr-2"></i>Back</button></a>
                         <div class="card mb-2">
-                            <div class="card-body p-2 p-sm-3">
+                            <div class="card-body">
                                 <div class="media forum-item">
-                                    <a href="#" data-bs-toggle="collapse" data-bs-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>
-                                    <div class="media-body">
-                                        <h6><a href="#" data-bs-toggle="collapse" data-bs-target=".forum-content" class="text-body">Realtime fetching data</a></h6>
-                                        <p class="text-secondary">
-                                            lorem ipsum dolor sit amet lorem ipsum dolor sit amet lorem ipsum dolor sit amet
-                                        </p>
-                                        <p class="text-muted"><a href="javascript:void(0)">drewdan</a> replied <span class="text-secondary font-weight-bold">13 minutes ago</span></p>
+                                    <a href="javascript:void(0)" class="card-link">
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
+                                    </a>
+                                    <div class="media-body ml-3">
+                                        <a href="javascript:void(0)" class="text-secondary">{{forum1?.user.pren_PERS }}    {{forum1?.user.nom_PERS}}</a>
+                                        <h5 class="mt-1"></h5>
+                                        <div class="mt-3 font-size-sm">
+                                            
+                                            <p>
+                                                {{forum1?.message}}
+                                            </p>
+                                            
+                                        </div>
                                     </div>
-                                    <div class="text-muted small text-center align-self-center">
-                                        <span><i class="far fa-comment ml-2"></i> 3</span>
+                                    <div class="text-muted small text-center">
+                                        <span><i class="far fa-comment ml-2"></i> {{forum1?.replycount}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                             <div class="col-md-2" style="padding-bottom:5px;padding-left: 5px;">
+                                <button (click)="open()" href="javascript:void(0)" class="btn btn-light btn-outline-primary">Commentaire</button>
+                             </div>
+                            
+                                <div class="row" *ngIf="isopened==true">
+                                    <div class="col-6">
+                                        <div class="form-group" style="margin-left: 20px;margin-top: 10px;padding-bottom:5px;">
+                                            <input id="subject"  [(ngModel)]="reply.body"  type="text" [ngModelOptions]="{standalone: true}"  type="text" placeholder="Ajouter un commentaire ..." class="form-control"> 
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="col-md-2"><button [id]="forum1?.id" (click)="Reply();getReplies(forum1?.id);close();" class="btn btn-light" style="margin-top: 10px;"><i class="fa fa-sharp fa-shake fa-regular fa-arrow-right fa-sm" style="color: #4c4c4d;"></i></button> </div>
+                                </div>
+                            
+        
+                        </div>
+                        <div class="card mb-2"  *ngFor="let reply of replies">
+                            <div class="card-body">
+                                <div class="media forum-item">
+                                    <a href="javascript:void(0)" class="card-link">
+                                        <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle" width="50" alt="User" />
+                                        
+                                    </a>
+                                    <div class="media-body ml-3">
+                                        <a href="javascript:void(0)" class="text-secondary">{{reply.user.nom_PERS}} {{reply.user.pren_PERS}}</a>
+                                        <div class="mt-3 font-size-sm">
+                                            <p>{{reply.body}}</p>
+                                        </div>
+                                       
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-</div>                   
-</div>           
+                    <!-- /Forum Detail -->
+        
+                    <!-- /Inner main body -->
                 </div>
+                <!-- /Inner main -->
             </div>
-            
     </div>
 </section>
+
+<app-footer></app-footer>
