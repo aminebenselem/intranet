@@ -77,7 +77,7 @@ export class FormationAdminComponent implements OnInit {
    }
    getFilename(file: File){
      let filename=file.name
-     let extension =filename.substring(filename.lastIndexOf('.')+1, filename.length) || filename;
+     let extension =filename.substring(filename.lastIndexOf('.'), filename.length) || filename;
     return filename.substring(0,filename.lastIndexOf('.')-1)+this.getWord()+'.'+extension;
    
    }

@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../services/storage.service';
 import { User } from '../login/user';
-import { reclamation } from './reclamtion';
+import { Reclamation } from './reclamtion';
 
 @Component({
   selector: 'app-reclamation',
@@ -11,7 +11,7 @@ import { reclamation } from './reclamtion';
 })
 export class ReclamationComponent implements OnInit {
   x:User = new User();
-reclamation:reclamation=new reclamation();
+reclamation:Reclamation=new Reclamation();
 
     response?:any;
  

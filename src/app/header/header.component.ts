@@ -9,7 +9,6 @@ import  jwt_decode from "jwt-decode";
   })
   export class HeaderComponent implements OnInit {
     constructor(private http:HttpClient ,private storage:StorageService) { }
-    role:any=''
  response:any
  baseURL="http://localhost:9090"
  header=new HttpHeaders()
@@ -17,15 +16,9 @@ import  jwt_decode from "jwt-decode";
 
     ngOnInit(): void {
      
-     console.log( this.getUserRole(this.storage.getToken()))
+    
     }
-    getUserRole(token:any){
-      try {
-        return jwt_decode(token);
-      } catch(Error) {
-        return null;
-      }
-     }
+    
   
 
 }

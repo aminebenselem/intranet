@@ -23,41 +23,49 @@ import { EventAdminComponent } from './event-admin/event-admin.component';
 import { AttestationdetravailAdminComponent } from './attestationdetravail-admin/attestationdetravail-admin.component';
 import { LogoutComponent } from './logout/logout.component';
 import { E403Component } from './e403/e403.component';
-
-
+import { 
+  AuthGuardService as AuthGuard 
+} from './services/auth-guard.service';
+import { 
+  RoleGuardService as RoleGuard 
+} from './services/role-guard.service';
 const routes: Routes = [
   { path: 'login', component: LoginComponent
   },
   { 
+    
     path: '', 
     redirectTo: '/login', 
     pathMatch: 'full' 
   },
-  { path:'annuaire', component: AnnuaireComponent},
+  { path:'annuaire', component: AnnuaireComponent,canActivate:[AuthGuard] },
 
-  { path:'acceuil', component: AcceuilComponent},
+  { path:'acceuil', component: AcceuilComponent,canActivate:[AuthGuard] },
 
-  { path:'agenda', component: AgendaComponent },
+  { path:'agenda', component: AgendaComponent ,canActivate:[AuthGuard] },
   
-  { path:'actualites', component: ActualitesComponent },
-  { path:'documents', component: DocumentsComponent },
-  {path:'fichedepaie',component:FichedepaieComponent},
-  {path:'reclamation',component:ReclamationComponent},
-  { path:'forum', component: ForumComponent },
-  { path:'events', component: EventComponent },
-  { path:'formation', component: FormationComponent },
+  { path:'actualites', component: ActualitesComponent,canActivate:[AuthGuard]  },
+  { path:'documents', component: DocumentsComponent ,canActivate:[AuthGuard] },
+  {path:'fichedepaie',component:FichedepaieComponent,canActivate:[AuthGuard] },
+  {path:'reclamation',component:ReclamationComponent,canActivate:[AuthGuard] },
+  { path:'forum', component: ForumComponent,canActivate:[AuthGuard]  },
+  { path:'events', component: EventComponent,canActivate:[AuthGuard]  },
+  { path:'formation', component: FormationComponent ,canActivate:[AuthGuard] },
 
-  { path:'demandes', component: DemandesComponent },
-  {path:  'tempdetravail',component:  TempsDeTravailComponent},
-  {path:'tableaudeservice',component:TableaudeserviceComponent},
- {path:'pointage',component:PointageComponent},
- {path:'actadmin',component:ActualitesAdminComponent},
- {path:'formationadmin',component:FormationAdminComponent},
- {path:'suivireclamation',component:SuiviReclamationComponent},
- {path:'eventadmin',component:EventAdminComponent},
- {path:'attestation-admin',component:AttestationdetravailAdminComponent},
- {path:'logout',component:LogoutComponent},
- {path:'403',component:E403Component}
+  { path:'demandes', component: DemandesComponent,canActivate:[AuthGuard]  },
+  {path:  'tempdetravail',component:  TempsDeTravailComponent,canActivate:[AuthGuard] },
+  {path:'tableaudeservice',component:TableaudeserviceComponent,canActivate:[AuthGuard] },
+ {path:'pointage',component:PointageComponent,canActivate:[AuthGuard] },
+ {path:'actadmin',component:ActualitesAdminComponent,canActivate:[AuthGuard] },
+ {path:'formationadmin',component:FormationAdminComponent,canActivate:[AuthGuard] },
+ {path:'suivireclamation',component:SuiviReclamationComponent,canActivate:[AuthGuard] },
+ {path:'eventadmin',component:EventAdminComponent,canActivate:[AuthGuard,RoleGuard], 
+ data: { 
+   expectedRole: 'ROLE_ADMIN'
+ } },
+ {path:'attestation-admin',component:AttestationdetravailAdminComponent,canActivate:[AuthGuard] },
+ {path:'logout',component:LogoutComponent,canActivate:[AuthGuard] },
+ {path:'403',component:E403Component,canActivate:[AuthGuard] }
 ];
 
 @NgModule({

@@ -47,7 +47,7 @@ getUser(){
   
  return this.http.get(this.baseURL+"/users/"+this.storage.getUser(),{headers:this.header})
   .subscribe({
-    next: (res) => {this.response=res},
+    next: (res) => {this.response=res;this.storage.storeUserRole(this.response.role)},
 error: (err) =>{if(this.error.code==403){
   this.route.navigate(["/403"])
 }} ,

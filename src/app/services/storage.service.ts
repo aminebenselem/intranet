@@ -42,6 +42,14 @@ export class StorageService {
   storeuser(username:any){
     localStorage.setItem('user',this.encrypt(username))
   }
+  storeUserRole(role:any){
+    localStorage.setItem('role',this.encrypt(role))
+  }
+  getUserRole(){
+    let role =localStorage.getItem('role')+""
+    
+    return this.decrypt(role);
+  }
   getUser(){
     let user =localStorage.getItem('user')+""
     
