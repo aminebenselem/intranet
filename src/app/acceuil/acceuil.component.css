@@ -82,3 +82,6 @@ thead {
 .shadow-none {
     box-shadow: none!important;
 }
+.btn {
+    background-color: #20247b;
+    }

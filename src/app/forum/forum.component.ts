@@ -27,6 +27,9 @@ response:any
   replies:any;
 token=this.storage.getToken();
 baseURL:String="http://localhost:9090"
+searched:any=[]
+backup:any=[]
+searchtext:any
 header=new HttpHeaders()
  .set("authorization","Bearer "+this.token);
   constructor(private storage:StorageService,private http:HttpClient,private route:Router) { }
@@ -63,7 +66,7 @@ complete: () => console.log("")
 getForums(){
   return this.http.get(this.baseURL+"/forums",{headers:this.header})
   .subscribe({
-    next: (res) => {console.log(res),this.forums=res},
+    next: (res) => {console.log(res),this.forums=res,this.backup=this.forums},
   error: (err) => console.log(err),
   complete: () => console.log("")
   
@@ -110,5 +113,60 @@ complete: () => console.log("")
 }
 reload(){
  window.location.reload()
+}
+Recherche(event:any){
+
+  let text=this.searchtext
+  this.forums=this.backup
+  this.searched=[]
+
+  this.forums.forEach((forum: Forum)  => {
+    if(forum.title?.toLocaleLowerCase().includes(text.toLocaleLowerCase())){
+     this.searched.push(forum)
+
+   }
+  });
+this.forums=this.searched
+
+
+}
+Populaire(){
+  document.getElementById("tous")?.classList.remove("active")
+  document.getElementById("pas")?.classList.remove("active")
+  document.getElementById("pop")?.classList.add("active")
+  this.forums=this.backup
+  this.searched=[]
+
+  this.forums.forEach((forum: Forum)  => {
+    let i=forum.replicount
+    if(i >= 6){
+     this.searched.push(forum)
+
+   }
+  });
+this.forums=this.searched
+}
+Tous(){
+  document.getElementById("tous")?.classList.add("active")
+  document.getElementById("pas")?.classList.remove("active")
+  document.getElementById("pop")?.classList.remove("active")
+  this.forums=this.backup
+ 
+}
+PasDeReponse(){
+  document.getElementById("tous")?.classList.remove("active")
+  document.getElementById("pas")?.classList.add("active")
+  document.getElementById("pop")?.classList.remove("active")
+  this.forums=this.backup
+  this.searched=[]
+
+  this.forums.forEach((forum: Forum)  => {
+    let i=forum.replicount
+    if(i == 0){
+     this.searched.push(forum)
+
+   }
+  });
+this.forums=this.searched
 }
 }
