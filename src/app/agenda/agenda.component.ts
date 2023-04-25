@@ -34,7 +34,7 @@ export class AgendaComponent implements OnInit
      this.gettasks()
    }
  gettasks(){
-   return this.http.get(this.baseURL+"/users/"+this.storage.getUser()+"/tasks",{headers:this.header})
+   return this.http.get(this.baseURL+"/users"+"/tasks",{headers:this.header})
    .subscribe({
      next: (res) => {
       this.response=res;

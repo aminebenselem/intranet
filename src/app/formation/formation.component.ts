@@ -24,6 +24,11 @@ export class FormationComponent implements OnInit {
        blob: any;
        
   User: any;
+  backup:any=[]
+  searched:any=[]
+  selected:any="Tous les categories"
+  formations:any=[]
+  selectedA:any="Tous les années"
    constructor(private http:HttpClient,private storage:StorageService,private ss:DownloadService) { }
   ngOnInit(): void {
     this.getFormation()
@@ -34,7 +39,7 @@ export class FormationComponent implements OnInit {
     .subscribe({
       next: (res) => {
        this.response=res;
-       
+       this.backup=this.response
      
          console.log(this.response)
         
@@ -66,5 +71,41 @@ export class FormationComponent implements OnInit {
   }
   getfilename(url:any){
 return url.substring(url.lastIndexOf('/'),url.length)
+  }
+  Select(event:any){
+   
+    this.response=this.backup
+    this.searched=[]
+  
+    this.response.forEach((formation: formation)  => {
+    
+      if(formation.categorie?.toLocaleLowerCase()==this.selected.toLocaleLowerCase()){
+        console.log(formation)
+        this.searched.push(formation)
+   
+      }
+    });
+  this.response=this.searched
+  if(this.selected=="Tous les categories"){
+    this.response=this.backup
+  }
+  }
+  SelectA(event:any){
+   
+    this.response=this.backup
+    this.searched=[]
+  
+    this.response.forEach((formation: formation)  => {
+     
+   let a= formation.datedb?.toString()
+      if(a?.substring(0,4)==this.selectedA){
+        this.searched.push(formation)
+   
+      }
+    });
+  this.response=this.searched
+ if(this.selectedA=="Tous les années"){
+  this.response=this.backup
+ }
   }
 }

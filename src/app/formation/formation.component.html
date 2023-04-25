@@ -9,16 +9,18 @@
 <div class="row">
 <div class="col-md-6"></div>
   <div class="col-md-2">
-    <select style="margin-top: 21px;" class="form-control custom-select-sm w-auto mr-1">
-      <option selected="">Informatique</option>
-      <option value="1">Réseau</option>
-      <option value="3">Communication</option>
-      <option value="3">qqc</option>
-      <option value="3">qqc</option>
+    <select style="margin-top: 21px;" class="form-control custom-select-sm w-auto mr-1" (change)="Select($event)" [(ngModel)]="selected" [ngModelOptions]="{standalone:true}">
+      <option>Tous les categories</option>
+      <option >Informatique</option>
+      <option>Réseau</option>
+      <option>Communication</option>
+      <option>qqc</option>
+      <option>qqc</option>
   </select>
   </div>
   <div class="col-md-2">
-    <select style="margin-top: 21px;" class="form-control custom-select-sm w-auto mr-1">
+    <select style="margin-top: 21px;" class="form-control custom-select-sm w-auto mr-1" (change)="SelectA($event)" [(ngModel)]="selectedA" [ngModelOptions]="{standalone:true}">
+      <option>Tous les années</option>
       <option selected="">2023</option>
       <option value="1">2022</option>
       <option value="3">2021</option>

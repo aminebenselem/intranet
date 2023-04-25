@@ -12,7 +12,7 @@
               <div class="card" >
                 <div class="card-body">
                   <div class="d-flex flex-column align-items-center text-center">
-                    <img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt="Admin" class="rounded-circle" width="150">
+                    <img [src]="response?.uri"  class="rounded-circle" width="200" height="200">
                     <div class="mt-3">
                       <h4>{{response?.pren_PERS+" "+response?.nom_PERS}}</h4>
                       <p class="text-secondary mb-1">Full Stack Developer</p>
@@ -25,6 +25,13 @@
                      Modifier mot de passe 
                           </button>
                       </div>
+                      <br>
+                      <div class="form-group">
+                        <label for="image" class="btn btn-primary" >Changer la photo de profil</label>
+
+                        <input type="file" (change)="selectFile($event);changerPhoto()"  class="form-control" id="image" style="display: none;">
+
+                    </div>
                       </div>
                     </div>
                   </div>
@@ -144,7 +151,7 @@
                       <h6 class="mb-0">Code Grade</h6>
                     </div>
                     <div class="col-sm-9 text-secondary">
-                      {{response?.cod_GRAD}}
+                      {{response?.grade_ADM}}
                     </div>
                   </div>
                   <hr>
@@ -264,7 +271,9 @@
                       <button  (click)="onCloseHandled2()" type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                       <button type="button" (click)="ModifierPassword ()" class="btn "style="background-color: #fc5356;color:white;">Post</button>
                   </div>
+                  
               </form>
+              
           </div>
       </div>
   </div>
