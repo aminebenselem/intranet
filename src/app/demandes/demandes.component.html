@@ -50,12 +50,15 @@
         <!--STEP 2-->
          <div *ngIf="step==2" class="step2body">
         <!--STEP 2 IF ATTESTATION DE TRAVAIL-->
-        <div class="row" *ngIf="selectedDemande=='Attestation de travail'">
+        <div class="row" *ngIf="selectedDemande=='Attestation de travail'"   >
                 <div class="form-group">
-                    <div class="col-md-4">
-                    <input type="textarea" class="form-control" placeholder="Description" id="description">
-               </div>
+                   
+                      <div >
+                        <p>Cliquer pour télécharger votre Attestation de Travail</p>
+                      </div>
             </div>
+            <div class="col-md-4"> <button style="margin:60px;" class="btn btn-primary" (click)="next();getAttestation()">Télécharger</button></div>
+           
         </div>
         <!--END STEP 2 IF ATTESTATION DE TRAVAIL-->
         <!--STEP 2 IF DEMANDE SOCIALE-->
@@ -66,7 +69,8 @@
                   {{social}}</label>
            </div>
         </div>
-    </div>
+        <div class="col-md-4"> <button style="margin:60px;" class="btn btn-primary" (click)="next()">Télécharger</button></div>
+      </div>
     <!--END STEP 2 IF DEMANDE SOCIALE-->
     <!--STEP 2 IF DEMANDE CONGE-->
     <div class="row" *ngIf="selectedDemande=='Demande de congé'">
@@ -264,10 +268,10 @@
          </form>
      </div>
     </div>
+    <button style="margin:60px;" class="btn btn-primary" (click)="next()">Suivant</button>
 </div>
 <!--END STEP 2 IF DEMANDE CONGE-->
 
-            <button style="margin:60px;" class="btn btn-primary" (click)="next()">Suivant</button>
          </div>         
          <!-- END STEP 2-->
          <div *ngIf="step ==3" class="step3body">

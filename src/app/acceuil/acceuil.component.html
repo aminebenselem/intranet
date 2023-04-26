@@ -15,8 +15,7 @@
                     <img [src]="response?.uri"  class="rounded-circle" width="200" height="200">
                     <div class="mt-3">
                       <h4>{{response?.pren_PERS+" "+response?.nom_PERS}}</h4>
-                      <p class="text-secondary mb-1">Full Stack Developer</p>
-                      <p class="text-muted font-size-sm">Bay Area, San Francisco, CA</p>
+                      <p class="text-secondary mb-1">{{response?.grade_ADM}}</p>
                     </div>
                     <div class="row">
                       <div class="col-sm-12">
@@ -137,24 +136,7 @@
                     </div>
                   </div>
                   <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Fonction</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{response?.cod_FONCT}}
-                    </div>
-                  </div>
-                  <hr>
-                  <div class="row">
-                    <div class="col-sm-3">
-                      <h6 class="mb-0">Code Grade</h6>
-                    </div>
-                    <div class="col-sm-9 text-secondary">
-                      {{response?.grade_ADM}}
-                    </div>
-                  </div>
-                  <hr>
+                    
                   <div class="row">
                     <div class="col-sm-3">
                       <h6 class="mb-0">Echélle</h6>
@@ -191,7 +173,15 @@
                     </div>
                   </div>
                   <hr>
-               
+                  <div class="row">
+                    <div class="col-sm-3">
+                      <h6 class="mb-0">Famille</h6>
+                    </div>
+                    <div class="col-sm-9 text-secondary">
+                      <p *ngFor="let member of family">{{member?.prenom}}</p>
+                      
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
