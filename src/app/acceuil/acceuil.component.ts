@@ -26,6 +26,7 @@ export class AcceuilComponent implements OnInit {
  User:User = new User();
  email:email = new email();
  x:Password = new Password();
+ family:any
   response:any
    myModal:any
    myModal1:any
@@ -39,6 +40,7 @@ header=new HttpHeaders()
   ngOnInit(): void {
     
 this.getUser()
+this.getUserFamily()
 var element = document.getElementById('threadModal') as HTMLElement;
  this.myModal = new Modal(element);
  var element = document.getElementById('threadModal1') as HTMLElement;
@@ -84,6 +86,17 @@ complete: () => console.log("")
 
 });
 }
+getUserFamily(){
+  
+  return this.http.get(this.baseURL+"/famille",{headers:this.header})
+   .subscribe({
+     next: (res) => {this.family=res},
+ error: (err) =>{} ,
+ 
+ complete: () => console.log("")
+ 
+ });
+ }
 modifierEmail ()  {
 
 

@@ -14,7 +14,12 @@ body{margin-top:20px;}
     height: 80px;
     text-align: center
 }
-
+pdf-viewer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(5px 5px 5px #222222);
+}
 .steps .step .step-icon-wrap::before,
 .steps .step .step-icon-wrap::after {
     display: block;
