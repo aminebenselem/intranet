@@ -29,6 +29,7 @@ import {
 import { 
   RoleGuardService as RoleGuard 
 } from './services/role-guard.service';
+import { FicheadminComponent } from './ficheadmin/ficheadmin.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent
   },
@@ -63,6 +64,9 @@ const routes: Routes = [
  data: { 
    expectedRole: 'ROLE_ADMIN'
  } },
+
+ {path:'ficheadmin',component:FicheadminComponent, 
+  },
  {path:'attestation-admin',component:AttestationdetravailAdminComponent,canActivate:[AuthGuard] },
  {path:'logout',component:LogoutComponent,canActivate:[AuthGuard] },
  {path:'403',component:E403Component,canActivate:[AuthGuard] }

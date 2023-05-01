@@ -1,0 +1,87 @@
+<app-header></app-header>
+<div class="container bootstrap snippets bootdey">
+    <div class="row">
+        <div class="panel panel-default widget">
+            <div class="row">
+                <div class="col-6">
+                  <div class="section-title">
+                    <h2>Liste des demandes de Fiche de paies</h2>
+                </div>
+                 </div>
+              </div>
+              <div class="row justify-content-center">
+                <div class="col-12">
+                      <div class="table-responsive "style="margin-top:2%">
+                        <table  class="table table-striped  mb-0" style="background-color: rgb(255, 255, 255);">
+                          <thead >
+                            <tr class="text-uppercase">
+                              <th scope="col">Nom et Prenom</th>
+                              <th scope="col">Mois</th>
+                              
+                              <th scope="col">actions</th>
+                            
+                            </tr>
+                          </thead>
+                          <tbody >
+                            <tr  *ngFor="let fiche of responses;"  >
+                              <td style="-webkit-text-fill-color: rgb(0, 0, 0);">{{fiche.user?.nom_PERS}} {{fiche.user?.pren_PERS}}</td>
+                              <td style="-webkit-text-fill-color: rgb(0, 0, 0);">{{fiche.date}}</td>
+                            
+                              <td><div class="action">
+                                <div class="inner-sidebar-header justify-content-center">
+                                    <button [id]="fiche.id" (click)="openModal();getId($event)" class="btn  has-icon btn-block" style="background-color: #20247b;color: white;" type="button" data-bs-toggle="modal" data-target="#threadModal">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check" viewBox="0 0 16 16">
+                                            <path d="M10.97 4.97a.75.75 0 0 1 1.07 1.05l-3.99 4.99a.75.75 0 0 1-1.08.02L4.324 8.384a.75.75 0 1 1 1.06-1.06l2.094 2.093 3.473-4.425a.267.267 0 0 1 .02-.022z"/>
+                                          </svg>
+                                     envoyer fiche de paie
+                                    </button>
+                                </div>
+                               
+                            </div></td>
+                              
+                            </tr>
+                           
+                          </tbody>
+                       
+                        </table>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                        <br>
+                      </div>
+                   
+                  
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade"  id="threadModal" tabindex="-1" role="dialog" aria-labelledby="threadModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <form>
+                <div class="modal-header d-flex align-items-center  text-white" style="background-color:  #20247b;">
+                    <h6 class="modal-title mb-0" id="threadModalLabel">Nouvelle fiche de paie</h6>
+                    
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="image" class="btn btn-primary">Choisir une fiche de paie</label>
+
+                        <input type="file" (change)="selectFile($event);" class="form-control" id="image" style="display: none;">
+
+                    </div>
+              
+                </div>
+                <div class="modal-footer">
+                    <button  (click)="onCloseHandled()" type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn"  (click)="onCloseHandled();postFiche()" style="background-color: #fc5356;color:white;">Post</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>
