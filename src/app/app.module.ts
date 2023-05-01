@@ -33,6 +33,7 @@ import { E403Component } from './e403/e403.component';
 import { JwtModule, JwtModuleOptions } from '@auth0/angular-jwt';
 import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
 import { RoleGuardService } from './services/role-guard.service';
+import { FicheadminComponent } from './ficheadmin/ficheadmin.component';
 const JWT_Module_Options: JwtModuleOptions = {
   config: {
  },
@@ -65,6 +66,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     EventAdminComponent,
     AttestationdetravailAdminComponent,
     E403Component,
+    FicheadminComponent,
    
   ],
   imports: [
