@@ -48,7 +48,31 @@
               <button style="margin:60px;" class="btn btn-primary" (click)="next()">Suivant</button>
         </div>
         <!--STEP 2-->
-         <div *ngIf="step==2" class="step2body">
+        
+        
+        <div *ngIf="step==2" class="step2body">
+                 <div class="row"*ngIf="selectedDemande=='fiche de paie'">
+            <div class="col-lg-6"style="width: 300px;">
+             <select class="form-select form-select-lg mb-3" [(ngModel)]="fichedepaie.date" [ngModelOptions]="{standalone: true}" aria-label=".form-select-lg example">
+                 <option selected>Mois</option>
+                 <option value="janvier">janvier</option>
+                 <option value="février">février</option>
+                 <option value="Mars">Mars</option>
+                 <option value="Avril">Avril</option>
+                 <option value="Mai">Mai</option>
+                 <option value="Juin">Juin</option>
+                 <option value="Juillet">Juillet</option>
+                 <option value="Aout">Aout</option>
+                 <option value="Septembre">Septembre</option>
+                 <option value="Octobre">Octobre</option>
+                 <option value="Novembre">Novembre</option>
+                 <option value="Decembre">Decembre</option>
+               </select>
+             </div>
+            
+            
+         </div>
+          <div class="col-md-4"> <button style="margin:60px;" class="btn btn-primary" (click)="next();postFiche()">suivant</button></div>
         <!--STEP 2 IF ATTESTATION DE TRAVAIL-->
         <div class="row" *ngIf="selectedDemande=='Attestation de travail'"   >
                 <div class="form-group">
@@ -72,6 +96,8 @@
         <div class="col-md-4"> <button style="margin:60px;" class="btn btn-primary" (click)="next()">Télécharger</button></div>
       </div>
     <!--END STEP 2 IF DEMANDE SOCIALE-->
+
+
     <!--STEP 2 IF DEMANDE CONGE-->
     <div class="row" *ngIf="selectedDemande=='Demande de congé'">
         <div class="form-group">
@@ -274,6 +300,15 @@
 
          </div>         
          <!-- END STEP 2-->
+         <div *ngIf="step==3" class="step3body">
+          <div class="row"*ngIf="selectedDemande=='fiche de paie'">
+     <div class="col-lg-6"style="width: 300px;">
+   <p>attendez la reponse de la ressources humaines</p>
+      </div>
+     
+     
+  </div>
+
          <div *ngIf="step ==3" class="step3body">
             <div class="col-md-2" *ngIf="social1=='demande avance sur salaire'">
               <div class="form-group">
