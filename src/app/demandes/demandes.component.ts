@@ -4,8 +4,7 @@ import { Router } from '@angular/router';
 import { FileUploadService } from '../services/file-upload.service';
 import { StorageService } from '../services/storage.service';
 import { DownloadService } from '../services/downloadservice.service';
-import { error } from 'console';
-import { map } from 'rxjs';
+
 
 @Component({
   selector: 'app-demandes',

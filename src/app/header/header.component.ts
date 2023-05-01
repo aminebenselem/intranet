@@ -1,7 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../services/storage.service';
-import  jwt_decode from "jwt-decode";
   @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',

@@ -24,7 +24,7 @@ getUsers(){
   return this.http.get(this.baseURL+"/users",{headers:this.header})
   .subscribe({
     next: (res) => {this.responses=res;
-      for(let i=0;i<495;i++){
+      for(let i=0;i<this.responses.length;i++){
        this.users.push(this.responses[i])
       }
       

@@ -8,7 +8,7 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AnnuaireComponent } from './annuaire/annuaire.component';
 import { AcceuilComponent } from './acceuil/acceuil.component';
 import { TempsDeTravailComponent } from './temps-de-travail/temps-de-travail.component';
@@ -33,6 +33,7 @@ import { E403Component } from './e403/e403.component';
 import { JwtModule, JwtModuleOptions } from '@auth0/angular-jwt';
 import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
 import { RoleGuardService } from './services/role-guard.service';
+import { AuthInterceptor } from './services/auth-interceptor.service';
 const JWT_Module_Options: JwtModuleOptions = {
   config: {
  },
@@ -76,7 +77,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     PdfViewerModule,
     
   ],
-  providers: [RoleGuardService],
+  providers: [RoleGuardService,{provide: HTTP_INTERCEPTORS,useClass: AuthInterceptor,multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

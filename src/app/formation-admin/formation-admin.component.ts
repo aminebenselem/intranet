@@ -5,6 +5,8 @@ import { formation } from './formation';
 import { FileDetails } from '../FileDetails';
 import { FileUploadService } from '../services/file-upload.service';
 import { Router } from '@angular/router';
+import { User } from '../login/user';
+import { userFormation } from './userFormation';
 
 @Component({
   selector: 'app-formation-admin',
@@ -12,8 +14,15 @@ import { Router } from '@angular/router';
   styleUrls: ['./formation-admin.component.css']
 })
 export class FormationAdminComponent implements OnInit {
- formation: formation= new formation();
 
+ formation: formation= new formation();
+ userformation: userFormation= new userFormation();
+
+ responses:any=[]
+ users:any=[]
+selectedusers:any=[]
+pers:any=[]
+suser:any
  file!: File;
    fileDetails!: FileDetails;
    fileUris: Array<string> = [];
@@ -24,10 +33,12 @@ export class FormationAdminComponent implements OnInit {
  baseURL:String="http://localhost:9090"
  header=new HttpHeaders()
   .set("authorization","Bearer "+this.token);
+  searchtext: any;
  constructor(private storage:StorageService,private http:HttpClient,private fileUploadService: FileUploadService, private router: Router) { }
    
  
  ngOnInit(): void {
+  this.getUsers()
  }
  onSubmit(){
    this.filename=this.getFilename(this.file)
@@ -81,4 +92,57 @@ export class FormationAdminComponent implements OnInit {
     return filename.substring(0,filename.lastIndexOf('.')-1)+this.getWord()+'.'+extension;
    
    }
+
+   getUsers(){
+
+    return this.http.get(this.baseURL+"/users")
+    .subscribe({
+      next: (res) => {this.responses=res,console.log(res);
+        for(let i=0;i<495;i++){
+         this.users.push(this.responses[i])
+        }
+        
+      },
+  error: (err) => console.log(err),
+  complete: () => console.log("")
+  
+  });
+  }
+  change(event:any){
+
+this.users.forEach((user: any) => {
+  if (user.nom_PERS+" "+user.pren_PERS===this.suser){
+    
+    this.pers.push(user.mat_Pers)
+    this.selectedusers.push(user)
+  }
+});
+
+
+this.suser="";
+  }
+  
+delete(user:any){
+  const index: number = this.selectedusers.indexOf(user);
+  const index2: number = this.pers.indexOf(user.mat_Pers);
+
+  if (index !== -1) {
+      this.selectedusers.splice(index, 1);
+      this.pers.splice(index2, 1);
+  }    
+   
+
+}
+async userFormation(){
+this.userformation.formation=this.formation
+this.userformation.users=this.pers
+  let data=JSON.parse( JSON.stringify(this.userformation));
+   return this.http.post(this.baseURL+"/addformationUser",data)
+ .subscribe({
+   next: (res) => {this.response=res,console.log(res)},
+ error: (err) => {console.log(err)},
+ complete: () => {console.log("")}
+ 
+ });
+}
  }
