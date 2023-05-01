@@ -2,6 +2,7 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../services/storage.service';
 import { Router } from '@angular/router';
+import { Observable, map } from 'rxjs';
 
 @Component({
   selector: 'app-actualites',
@@ -35,12 +36,13 @@ constructor(private http:HttpClient,private storage:StorageService,private route
     this.getallactualite();
   }
 getallactualite(){
+
   return this.http.get(this.baseURL+"/actualite",{headers:this.header})
   .subscribe({
     next: (res) => {this.responses=res,console.log(res);
       for(let response of this.responses){
-       
         this.actualite.push(response)
+
       }      
       
     },
@@ -56,5 +58,12 @@ getDay(date:any){
 getMonth(date:any){
 return this.month[parseInt(date.substring(5,7))-1]
 }
-
+private loadImage(url: string): Observable<any> {
+  return this.http
+    // load the image as a blob
+    .get(url, {responseType: 'blob'})
+    // create an object url of that blob that we can use in the src attribute
+    .pipe(map((e) => URL.createObjectURL(e)))
 }
+}
+

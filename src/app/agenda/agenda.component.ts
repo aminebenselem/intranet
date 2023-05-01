@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../services/storage.service';
 import { User } from '../login/user';
 import { agenda } from './agenda';
-import { Console } from 'console';
 import { Router } from '@angular/router';
 
 @Component({

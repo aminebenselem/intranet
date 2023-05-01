@@ -39,8 +39,21 @@
                                     <input id="formateur" type="text" placeholder="Formateur" class="form-control" [(ngModel)]="formation.formateur" [ngModelOptions]="{standalone: true}">  
                                 </div>
                                 <br>
+                                <div class="form-group">
+                                    <input type="text" list="productList" class="form-control" name="product" (change)="change($event)" placeholder="Choisir les participants"  [(ngModel)]='suser' [ngModelOptions]="{standalone: true}"  />
+                                  <datalist id="productList" >
+                                    <select class="form-control custom-select-sm w-auto mr-1">
+                                  <option *ngFor="let user of users"  data-guest="user"   >{{user.nom_PERS}} {{user.pren_PERS}}</option>
+                                </select>
+                                </datalist>
+                                
+                                </div>
+                                <div  class="form-group"><p *ngFor="let user of selectedusers">{{user.nom_PERS}} {{user.pren_PERS}} <button class='fa fa-close' style='color:#c0a5a5' aria-hidden="true" (click)="delete(user)">
+                                </button> </p></div>
+                                <br>
                             </div>
                             <div class="row">
+                                
                             <div class="col-6">
                                 <div class="col-6">
                                     Date debut
@@ -68,7 +81,7 @@
                             <br> <br> <br> <br> <br>
                             <div class="col-md-12">
                                 <div class="send">
-                                    <button (click)="onSubmit()" id="send_message" class="px-btn theme" ><span>Ajouter</span> <i class="arrow"></i></button>
+                                    <button (click)="onSubmit();userFormation()" id="send_message" class="px-btn theme" ><span>Ajouter</span> <i class="arrow"></i></button>
                                 </div>
 
                             </div>
@@ -80,5 +93,6 @@
             
         </div>
     </div>
+    
 </section>
 <app-footer></app-footer>
