@@ -33,8 +33,11 @@ export class AcceuilComponent implements OnInit {
    myModal2:any
   token=this.storage.getToken();
 baseURL:String="http://localhost:9090"
+
+
 header=new HttpHeaders()
    .set("authorization","Bearer "+this.token);
+  
   constructor(private http:HttpClient,private storage:StorageService,private route:Router,private fileUploadService: FileUploadService) { }
 
   ngOnInit(): void {

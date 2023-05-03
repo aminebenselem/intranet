@@ -6,12 +6,14 @@ import { StorageService } from '../services/storage.service';
 import { FileUploadService } from '../services/file-upload.service';
 import { FileDetails } from '../FileDetails';
 import { fichedepaie } from '../demandes/fichedepaie';
+import { Notification } from '../Notification';
 @Component({
   selector: 'app-ficheadmin',
   templateUrl: './ficheadmin.component.html',
   styleUrls: ['./ficheadmin.component.css']
 })
 export class FicheadminComponent implements OnInit {
+  notification:Notification=new Notification()
   myModal: any;
   fichedepaie:fichedepaie=new fichedepaie()
   file!: File;
@@ -62,7 +64,7 @@ constructor(private storage:StorageService,private http:HttpClient,private fileU
     let data=JSON.parse( JSON.stringify(this.fichedepaie));
     return this.http.put(this.baseURL+"/updatefiche",data,{headers:this.header})
   .subscribe({
-    next: (res) => {this.response=res,console.log(res)},
+    next: (res) => {this.response=res,console.log(res),this.notify()},
   error: (err) => {console.log(err)},
   complete: () => {console.log("")}
   
@@ -72,6 +74,8 @@ constructor(private storage:StorageService,private http:HttpClient,private fileU
 
   getId(event:any){
    this.fichedepaie.id=event.target.id;
+   this.notification.user.mat_Pers=event.target.name;
+   
   }
 
 
@@ -113,5 +117,18 @@ constructor(private storage:StorageService,private http:HttpClient,private fileU
      return filename.substring(0,filename.lastIndexOf('.')-1)+this.getWord()+'.'+extension;
     
     }
-
+    notify(){
+      
+      
+      this.notification.message="Votre fiche de paie est préte";
+      
+        let data=JSON.parse( JSON.stringify(this.notification));
+        return this.http.post("http://localhost:9090/notify",data,{headers:this.header})
+        .subscribe({
+          next: (res) => {this.response=res,console.log(res)},
+        error: (err) => {console.log(err)},
+        complete: () => console.log("")
+        
+        });
+      }
 }
