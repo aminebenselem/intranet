@@ -89,11 +89,11 @@
         <div class="row" *ngIf="selectedDemande=='Demande sociale'">
             <div class="form-group">
                 <div class="col-md-4" *ngFor="let social of socials">
-                  <label><input  type="radio" class="form-check-input" name="id" (change)="changeHandler2($event)" value="{{social}}">
+                  <label><input  type="radio" class="form-check-input"   name="id" (change)="changeHandler2($event)" value="{{social}}">
                   {{social}}</label>
            </div>
         </div>
-        <div class="col-md-4"> <button style="margin:60px;" class="btn btn-primary" (click)="next()">Télécharger</button></div>
+
       </div>
     <!--END STEP 2 IF DEMANDE SOCIALE-->
 
@@ -314,47 +314,50 @@
               <div class="form-group">
                 <label for="image" class="btn btn-primary">Attacher un Motif</label>
   
-                <input type="file"   class="form-control" id="image" style="display: none;" >
-  
+                <input type="file"  (change)="selectFile($event);"  class="form-control" id="image" style="display: none;" >
+                <button style="margin:60px;"  class="btn btn-primary" (click)="confirmer();postDemande()">Confirmer</button>
             </div>
             </div>
             <div class="col-md-4" *ngIf="social1=='demande prime de déces'">
               <div class="form-group">
                 <label for="image" class="btn btn-primary">Attacher un extrait de déces</label>
   
-                <input type="file"   class="form-control" id="image" style="display: none;" >
-  
+                <input type="file"  (change)="selectFile($event);"  class="form-control" id="image" style="display: none;" >
+                <button style="margin:60px;"  class="btn btn-primary" (click)="confirmer();postDemande()">Confirmer</button>
             </div>
             </div>
             <div class="col-md-4" *ngIf="social1=='demande prime de mariage'">
               <div class="form-group">
                 <label for="image" class="btn btn-primary">Attacher un Contrat de marriage</label>
   
-                <input type="file"   class="form-control" id="image" style="display: none;" >
+                <input type="file" (change)="selectFile($event);"  class="form-control" id="image" style="display: none;" >
   
             </div>
+            <button style="margin:60px;"  class="btn btn-primary" (click)="confirmer();postDemande()">Confirmer</button>
             </div>
             <div class="row"  *ngIf="social1=='demande convention Ooredoo'">
             <div class="col-md-2">
               <div class="form-group">
                 <label for="image" class="btn btn-primary">Attacher CIN frontale</label>
   
-                <input type="file"   class="form-control" id="image" style="display: none;" >
+                <input type="file" (change)="selectFile($event);"   class="form-control" id="image" style="display: none;" >
   
             </div>
+       
           </div>
             
             <div class="col-md-2">
               <div class="form-group">
                 <label for="image" class="btn btn-primary">Attacher CIN frontale</label>
   
-                <input type="file"   class="form-control" id="image" style="display: none;" >
+                <input type="file" (change)="selectFileb($event);"   class="form-control" id="image" style="display: none;" >
             </div>
+            <button style="margin:60px;"  class="btn btn-primary" (click)="confirmer();postDemandeb(file,fileb)">Confirmer</button>
           </div>
             
 
          
         </div>
-         <button style="margin:60px;" class="btn btn-primary" (click)="confirmer()">Confirmer</button>
+        
       </div>
 <app-footer></app-footer>
