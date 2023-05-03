@@ -6,6 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { StorageService } from '../services/storage.service';
 import { Reply } from './reply';
 import { Router } from '@angular/router';
+import { Notification } from '../Notification';
 
 
 @Component({
@@ -17,6 +18,7 @@ import { Router } from '@angular/router';
 
 
 export class ForumComponent implements OnInit {
+  notification:Notification=new Notification()
   reply:Reply=new Reply();
   isopened:boolean=false;
 myModal:any
@@ -54,7 +56,6 @@ onCloseHandled(){
 onSubmit(){
   this.forum.replicount=1;
   let data=JSON.parse( JSON.stringify(this.forum));
-  
   return this.http.post(this.baseURL+"/newforum",data,{headers:this.header})
 .subscribe({
   next: (res) => {this.response=res,console.log(res)},
@@ -102,10 +103,10 @@ Reply(){
 this.reply.forum.id=this.forum1.id;
 this.reply.user.mat_Pers=this.storage.getUser();
   let data=JSON.parse( JSON.stringify(this.reply));
-  
+
   return this.http.post(this.baseURL+"/reply",data,{headers:this.header})
 .subscribe({
-  next: (res) => {this.response=res,console.log(res)},
+  next: (res) => {this.response=res,console.log(res),this.notify(this.forum1.user.mat_Pers)},
 error: (err) => {console.log(err),this.reload()},
 complete: () => console.log("")
 
@@ -168,5 +169,18 @@ PasDeReponse(){
    }
   });
 this.forums=this.searched
+}
+notify(id:any){
+this.notification.user.mat_Pers=id;
+this.notification.message="Quelqu'un a commenté votre publication";
+
+  let data=JSON.parse( JSON.stringify(this.notification));
+  return this.http.post(this.baseURL+"/notify",data,{headers:this.header})
+  .subscribe({
+    next: (res) => {this.response=res,console.log(res)},
+  error: (err) => {console.log(err)},
+  complete: () => console.log("")
+  
+  });
 }
 }

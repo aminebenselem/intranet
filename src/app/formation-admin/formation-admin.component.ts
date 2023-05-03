@@ -95,7 +95,7 @@ suser:any
 
    getUsers(){
 
-    return this.http.get(this.baseURL+"/users")
+    return this.http.get(this.baseURL+"/users",{headers:this.header})
     .subscribe({
       next: (res) => {this.responses=res,console.log(res);
         for(let i=0;i<495;i++){
@@ -137,7 +137,7 @@ async userFormation(){
 this.userformation.formation=this.formation
 this.userformation.users=this.pers
   let data=JSON.parse( JSON.stringify(this.userformation));
-   return this.http.post(this.baseURL+"/addformationUser",data)
+   return this.http.post(this.baseURL+"/addformationUser",data,{headers:this.header})
  .subscribe({
    next: (res) => {this.response=res,console.log(res)},
  error: (err) => {console.log(err)},

@@ -79,7 +79,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     PdfViewerModule,
     
   ],
-  providers: [RoleGuardService,{provide: HTTP_INTERCEPTORS,useClass: AuthInterceptor,multi: true}],
+  providers: [RoleGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
