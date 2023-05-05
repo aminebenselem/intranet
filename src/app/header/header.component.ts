@@ -57,7 +57,7 @@ this.isopen=false
 this.notifnumber=this.notifnumber+1
           }
         });
-        
+        console.log(this.notifnumber)
       },
   error: (err) => console.log(err),
   complete: () => console.log("")
@@ -79,6 +79,8 @@ this.notifnumber=this.notifnumber+1
     };
   }
 update(notif:any){
+  console.log(notif)
+  console.log("dfghhj")
   return this.http.put(this.baseURL+"/updateviewed",notif,{headers:this.header}).subscribe({
     next:(res)=>{console.log(res)},
     error:(err)=>{console.log(err)},

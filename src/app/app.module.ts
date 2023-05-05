@@ -35,6 +35,7 @@ import  {  PdfViewerModule  }  from  'ng2-pdf-viewer';
 import { RoleGuardService } from './services/role-guard.service';
 import { AuthInterceptor } from './services/auth-interceptor.service';
 import { FicheadminComponent } from './ficheadmin/ficheadmin.component';
+import { EtatdemandeComponent } from './etatdemande/etatdemande.component';
 const JWT_Module_Options: JwtModuleOptions = {
   config: {
  },
@@ -68,6 +69,7 @@ const JWT_Module_Options: JwtModuleOptions = {
     AttestationdetravailAdminComponent,
     E403Component,
     FicheadminComponent,
+    EtatdemandeComponent,
    
   ],
   imports: [

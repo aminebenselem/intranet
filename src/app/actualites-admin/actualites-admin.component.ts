@@ -18,7 +18,7 @@ export class ActualitesAdminComponent implements OnInit {
   fileUris: Array<string> = [];
 act:Act=new Act()
 response:any
-  filename:string=""
+filename:any=""
 token=this.storage.getToken();
 baseURL:String="http://localhost:9090"
 header=new HttpHeaders()
@@ -33,6 +33,11 @@ ngOnInit(): void {
 }
 onSubmit(){
   this.filename=this.getFilename(this.file)
+  
+  if (this.filename==null){
+   return alert( "Le ficher doit etre pdf ou jpg ou jpeg ou png ou xls ou csv")
+  }
+  else {
   this.uploadFile()
   this.act.uri=this.getFileUri()
   let data=JSON.parse( JSON.stringify(this.act));
@@ -44,7 +49,7 @@ complete: () => {console.log("")}
 
 });
 
-}
+}}
 reloadPage() {
   window.location.reload();
 }
@@ -78,7 +83,14 @@ uploadFile() {
   getFilename(file: File){
     let filename=file.name
     let extension =filename.substring(filename.lastIndexOf('.')+1, filename.length) || filename;
-   return filename.substring(0,filename.lastIndexOf('.')-1)+this.getWord()+'.'+extension;
+    if (extension=="pdf"||extension=="xls"||extension=="csv"||extension=="jpeg"||extension=="jpg"||extension=="png"){
+      return filename.substring(0,filename.lastIndexOf('.')-1)+this.getWord()+'.'+extension;
+    }
+    else {
+      return null;
+    }
+    
+ 
   
   }
 }
