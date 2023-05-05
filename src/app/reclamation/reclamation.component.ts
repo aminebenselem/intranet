@@ -19,6 +19,8 @@ reclamation:Reclamation=new Reclamation();
     baseURL:String="http://localhost:9090"
    
   User: any;
+  header=new HttpHeaders()
+ .set("authorization","Bearer "+this.token);
    constructor(private http:HttpClient,private storage:StorageService) { }
   ngOnInit(): void {
   }
@@ -27,10 +29,11 @@ reclamation:Reclamation=new Reclamation();
     this.reclamation.user.mat_Pers=this.storage.getUser();
     let data=JSON.parse( JSON.stringify(this.reclamation));
     console.log(data)
-    return this.http.post(this.baseURL+"/newrec",data)
+    return this.http.post(this.baseURL+"/newrec",data,{headers:this.header})
      .subscribe(
       {
         next: (res) => {this.response=res;
+          alert("reclamation a été envoyée")
           window.location.reload();
           console.log(this.response)
          },

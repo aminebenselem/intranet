@@ -2,6 +2,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { StorageService } from '../services/storage.service';
 import { Notification } from '../Notification';
+import { AcceuilComponent} from '../acceuil/acceuil.component';
+import { User } from '../login/user';
+
   @Component({
     selector: 'app-header',
     templateUrl: './header.component.html',
@@ -15,6 +18,8 @@ import { Notification } from '../Notification';
 notifications:any=[]
 notifnumber:any=0
  response:any
+ responses:any
+ user:User=new User();
  baseURL="http://localhost:9090"
  header=new HttpHeaders()
  .set("authorization","Bearer "+this.storage.getToken())
@@ -26,7 +31,7 @@ notifnumber:any=0
       list?.addEventListener('blur', (event) => {
         list?.classList.remove('active');
       });
-      
+      this.getuser();
     }
  
   closeOpen(){
@@ -76,6 +81,15 @@ this.notifnumber=this.notifnumber+1
 update(notif:any){
   return this.http.put(this.baseURL+"/updateviewed",notif,{headers:this.header}).subscribe({
     next:(res)=>{console.log(res)},
+    error:(err)=>{console.log(err)},
+    complete:()=>{}
+  });
+}
+getuser(){
+  return this.http.get(this.baseURL+"/user",{headers:this.header}).subscribe({
+    next:(res)=>{console.log(res)
+   this.responses=res;
+      this.user.uri=this.responses.uri},
     error:(err)=>{console.log(err)},
     complete:()=>{}
   });

@@ -40,7 +40,7 @@ export class FormationComponent implements OnInit {
       next: (res) => {
        this.response=res;
        this.backup=this.response
-     
+     this.backup.reverse();
          console.log(this.response)
         
       },

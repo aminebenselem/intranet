@@ -1,8 +1,11 @@
+
 <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pixeden-stroke-7-icon@1.2.3/pe-icon-7-stroke/dist/pe-icon-7-stroke.min.css">
 <link 
   href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" 
   rel="stylesheet"  type='text/css'>
+  
+ 
 <!------ Include the above in your HEAD tag ---------->
 <body >
   
@@ -69,6 +72,21 @@
         <li class="nav-item">
           <a class="nav-link" href="/tempdetravail">Temps de travail</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/ficheadmin">Demandes des fiche de paies</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/actadmin">Ajouter une actualité</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/eventadmin">Ajouter un évenement</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/suivireclamation">Les réclamations</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/attestation-admin">Demandes Social</a>
+        </li>
      
         
       </ul>
@@ -87,8 +105,8 @@
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"  data-bs-toggle="dropdown"
             aria-expanded="false">
-            <img src="https://mdbootstrap.com/img/Photos/Avatars/img%20(2).jpg" class="rounded-circle img-fluid"
-              height='25' width='25'>
+            <img [src]="responses.uri" class="rounded-circle img-fluid"
+              height='35' width='35'>
           </a>
           <!-- Dropdown menu -->
           <ul class="dropdown-menu dropdown-menu-end p-1" aria-labelledby="navbarDropdown">

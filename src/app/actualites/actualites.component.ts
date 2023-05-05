@@ -42,7 +42,7 @@ getallactualite(){
     next: (res) => {this.responses=res,console.log(res);
       for(let response of this.responses){
         this.actualite.push(response)
-
+this.actualite.reverse();
       }      
       
     },

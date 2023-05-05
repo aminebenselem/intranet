@@ -4,7 +4,7 @@
 <div class="container">
     <div class="col-6">
         <div class="section-title">
-          <h2>les demandes des attestations de travail</h2>
+          <h2>les demandes Social</h2>
       </div>
        </div>
        <br>
@@ -19,160 +19,34 @@
                         <table class="table table-striped project-table table-centered table-nowrap">
                             <thead>
                                 <tr>
-                                    <th scope="col">#</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Date</th>
-                                    <th scope="col">Description</th>
+                                    <th scope="col">nom et prénom</th>
+                                    <th scope="col">Type</th>
+                                    <th scope="col">Etat</th>
+                                    <th scope="col">fichier 1</th>
+                                    <th scope="col">fichier 2</th>
                                     <th scope="col">Action</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>mohamed@gmail.com</td>
-                                    <td>02/5/2019</td>
-                                    <td>
-                                    aaaaa
-                                    </td>
-                                    
-                                   
+                             
 
+                                <tr *ngFor="let act of response">
+                                    <th scope="row">{{act.user?.nom_PERS
+                                    }} {{act.user?.pren_PERS}}</th>
+                                    <td>{{act.type}}</td>
+                                    <td>{{act.proved}}</td>
+                                    <td><button (click)="download(act.uri,getfilename(act.uri))" class="btn"><i class="fa fa-download"></i></button></td>
                                     <td>
-                                        <div class="action">
-                                            <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
-                                            <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa-remove h5 m-0"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>ahmed@gmail.com</td>
-                                    <td>04/6/2019</td>
-                                    <td>aaaa</td>
-                                   
-                                  
-
-                                    <td>
-                                        <div class="action">
-                                            <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
-                                            <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>ali@gmail.com</td>
-                                    <td>06/6/2019</td>
-                                    <td>
-                                      mmmmmm
-                                    </td>
-                                   
-                                 
-
-                                    <td>
-                                        <div class="action">
-                                            <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
-                                            <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>amine@gmail.com</td>
-                                    <td>07/5/2019</td>
-                                    <td>
-                                      dadadada
-                                    </td>
-                                   
-                                  
-
-                                    <td>
-                                        <div class="action">
-                                            <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
-                                            <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>amine@gmail.com</td>
-                                    <td>08/6/2019</td>
-                                    <td>
-                                      aaaa
-                                    </td>
-                                  
-                                 
-                                    <td>
-                                        <div class="action">
-                                            <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
-                                            <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>ali@gmail.com</td>
-                                    <td>10/6/2019</td>
-                                    <td>
-                                 dadada
-                                    </td>
-                                   
-                                 
-                                    <td>
-                                        <div class="action">
-                                            <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
-                                            <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">7</th>
-                                    <td>ali@gmail.com</td>
-                                    <td>12/5/2019</td>
-                                    <td>
-                                      adada
-                                    </td>
-                                   
-                                    <td>
-                                        <div class="action">
-                                            <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
-                                            <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">8</th>
-                                    <td>ahmed@gmail.com</td>
-                                    <td>13/6/2019</td>
-                                    <td>
-                                    dadada
-                                    </td>
-                                  
-                                    <td>
-                                        <div class="action">
-                                            <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
-                                            <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
-                                        </div>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <th scope="row">9</th>
-                                    <td>ali@gmail.com</td>
-                                    <td>15/6/2019</td>
-                                    <td>
-                                 dadada
+                                        <button (click)="download(act.uri,getfilename(act.uri))" class="btn"><i class="fa fa-download"></i></button>
                                     </td>
 
                                     <td>
                                         <div class="action">
-                                            <a href="#" class="text-success mr-4" data-toggle="tooltip" data-placement="top" title="" data-original-title="Edit"> <i class="fa fa-pencil h5 m-0"></i></a>
-                                            <a href="#" class="text-danger" data-toggle="tooltip" data-placement="top" title="" data-original-title="Close"> <i class="fa fa fa-remove h5 m-0"></i></a>
+                                            <button [id]="act.id" (click)="getId($event);updateEtat()"> <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check2" viewBox="0 0 16 16">
+                                                <path d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
+                                              </svg></button>
+                                           
+                                          
                                         </div>
                                     </td>
                                 </tr>

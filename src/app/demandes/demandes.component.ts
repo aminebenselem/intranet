@@ -24,7 +24,7 @@ demandes:any=[
  'fiche de paie',
   'Attestation de travail',
   'Demande sociale',
-  'Demande de congé'
+  
 ];
 filename:string=""
 file!: File;
