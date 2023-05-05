@@ -4,8 +4,6 @@ import { Router } from '@angular/router';
 import { FileUploadService } from '../services/file-upload.service';
 import { StorageService } from '../services/storage.service';
 import { DownloadService } from '../services/downloadservice.service';
-import { error } from 'console';
-import { map } from 'rxjs';
 import { fichedepaie } from './fichedepaie';
 import { demande } from './demande';
 import { FileDetails } from '../FileDetails';
@@ -31,7 +29,7 @@ file!: File;
 fileDetails!: FileDetails;
 fileUris: Array<string> = [];
 filenameb:string=""
-fileb!: File;
+fileb: FileList|[]=[];
 fileDetailsb!: FileDetails;
 fileUrisb: Array<string> = [];
 socials:any=[
@@ -151,7 +149,7 @@ reloadPage() {
 }
 selectFile(event: any) {
   this.file = event.target.files.item(0);
-  console.log(this.file.name)
+  console.log(this.file)
   
 }
  getFileUri(){
@@ -178,59 +176,67 @@ uploadFile() {
   
   }
   getFilename(file: File){
-    let filename=file.name
+    let filename='';
+     filename=file.name
     let extension =filename.substring(filename.lastIndexOf('.')+1, filename.length) || filename;
-   return filename.substring(0,filename.lastIndexOf('.')-1)+this.getWord()+'.'+extension;
-  
+    return filename.substring(0,filename.lastIndexOf('.')-1)+this.getWord()+'.'+extension;
+   
+
   }
-  getFileUrib(file:File){
+  getFileUrib(filename:any){
  
-    return this.demande.uri="http://localhost:9090/image/"+this.getFilename(file);
+    return "http://localhost:9090/image/"+filename;
     
     }
-  postDemandeb(file1:File,file2:File){
-
+  postDemandeb(){
+    console.log(this.fileb[0])
+    console.log(this.fileb[1])
 
     this.demande.user.mat_Pers=this.storage.getUser();
-    this.demande.type=this.social1
-    this.demande.proved="en cours"
-    let filename1=this.getFilename(file1)
-    let filename2=this.getFilename(file2)
-    this.demande.uri=this.getFileUrib(file1)
-     this.demande.uri1=this.getFileUrib(file2)
+  this.demande.type=this.social1
+  this.demande.proved="en attente"
+  
+  this.filename=this.fileb[0]?.name
+  let extension =this.filename.substring(this.filename.lastIndexOf('.')+1, this.filename.length) || this.filename;
+  this.filename=this.filename.substring(0,this.filename.lastIndexOf('.')-1)+this.getWord()+'.'+extension;
+  this.filenameb=this.fileb[1]?.name
+  let extension1 =this.filenameb.substring(this.filenameb.lastIndexOf('.')+1, this.filenameb.length) || this.filenameb;
+  this.filenameb=this.filenameb.substring(0,this.filenameb.lastIndexOf('.')-1)+this.getWord()+'.'+extension1;
+  this.demande.uri=this.getFileUrib(this.filename)
+  this.demande.uri1=this.getFileUrib(this.filenameb);
 
-  let data=JSON.parse( JSON.stringify(this.demande));
-  this.uploadFileb(file1,filename1)
-  this.uploadFileb(file2,filename2)
+let data=JSON.parse( JSON.stringify(this.demande));
+console.log(data)
+this.uploadFileb(this.fileb[0],this.filename)
+this.uploadFileb(this.fileb[1],this.filenameb)
 
-  console.log(data)
-  return this.http.post(this.baseurl+"/newdemande",data,{headers:this.header})
-  .subscribe({
-    next: (res) => {this.response=res,console.log(res)},
-  error: (err) => {console.log(err)},
-  complete: () => console.log("")
+return this.http.post(this.baseurl+"/newdemande",data,{headers:this.header})
+.subscribe({
+  next: (res) => {this.response=res,console.log(res)},
+error: (err) => {console.log(err)},
+complete: () => console.log("")
 
-  });
-
-}
-
-uploadFileb(file:File,filename:any) {
-this.fileUploadService.upload(file,filename,"/upload").subscribe({
-  next: (data) => {
-    {this.fileDetails = data,console.log(data)};
-    this.fileUris.push(this.fileDetails.fileUri);
-    alert("File Uploaded Successfully")
-  },
-  error: (e) => {
-    console.log(e);
-  }
 });
 }
+uploadFileb(file:File,filename:any) {
+  this.fileUploadService.upload(file,filename,"/upload").subscribe({
+    next: (data) => {
+      {this.fileDetails = data,console.log(data)};
+      this.fileUris.push(this.fileDetails.fileUri);
+      alert("File Uploaded Successfully")
+    },
+    error: (e) => {
+      console.log(e);
+    }
+  });
+}
+
+
  
   selectFileb(event1: any) {
-    this.fileb = event1.target.files.item(0);
+    this.fileb=event1.target.files
+    console.log(this.fileb)
 
-    console.log(this.fileb.name)
   }
   
 }

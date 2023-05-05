@@ -26,8 +26,7 @@ constructor(private http:HttpClient,private storage:StorageService,private route
   }
   getId(event:any){
     this.demande.id=event.target.id;
-    
-    
+    console.log(event.target)
    }
    reloadPage() {
     window.location.reload();
@@ -40,7 +39,7 @@ constructor(private http:HttpClient,private storage:StorageService,private route
       next: (res) => {this.responses=res
         console.log(this.responses)
            for ( let i=0;i<this.responses.length;i++){
-            if (this.responses[i].proved=="en cours"){
+            if (this.responses[i].proved=="en attente"){
               this.response.push(this.responses[i])
             }
            }
@@ -79,12 +78,12 @@ return url.substring(url.lastIndexOf('/'),url.length)
 
   updateEtat(){
     
-this.demande.proved="aprouvée"
+this.demande.proved="en cours de traitement"
 let data=JSON.parse( JSON.stringify(this.demande));
 console.log(data)
 return this.http.put(this.baseURL+"/update",data,{headers:this.header}).subscribe(
   {
-    next: (res) => {console.log(res);
+    next: (res) => {console.log(res);window.location.reload()
    
     },
 error: (err) => console.log(err),
