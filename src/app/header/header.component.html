@@ -87,6 +87,10 @@
         <li class="nav-item">
           <a class="nav-link" href="/attestation-admin">Demandes Social</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/etatdemandes">Etat Demandes Social</a>
+        </li>
+     
      
         
       </ul>
@@ -106,7 +110,7 @@
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"  data-bs-toggle="dropdown"
             aria-expanded="false">
             <img [src]="responses.uri" class="rounded-circle img-fluid"
-              height='35' width='35'>
+               style="width:50px;aspect-ratio: 3/2;object-fit: contain; border-radius: 10%;">
           </a>
           <!-- Dropdown menu -->
           <ul class="dropdown-menu dropdown-menu-end p-1" aria-labelledby="navbarDropdown">
@@ -127,7 +131,7 @@
 
 <div class="notification-list" id="notif" >
   <ul>
-    <li *ngFor="let notification of notifications"><a href="#">{{notification.message}}</a></li>
+    <li *ngFor="let notification of notifications"><a [id]="notification.id" (onclick)="update(notification)">{{notification.message}}</a></li>
   </ul>
 </div>
 <!-- Navbar -->

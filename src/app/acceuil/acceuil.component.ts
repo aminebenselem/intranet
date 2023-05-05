@@ -22,8 +22,8 @@ export class AcceuilComponent implements OnInit {
   file!: File;
   fileDetails!: FileDetails;
   fileUris: Array<string> = [];
-  filename:string=""
- User:User = new User();
+  filename:any=""
+   User:User = new User();
  email:email = new email();
  x:Password = new Password();
  family:any
@@ -174,11 +174,22 @@ uploadFile() {
   getFilename(file: File){
     let filename=file.name
     let extension =filename.substring(filename.lastIndexOf('.')+1, filename.length) || filename;
-   return filename.substring(0,filename.lastIndexOf('.')-1)+this.getWord()+'.'+extension;
+    if (extension=="jpeg"||extension=="jpg"||extension=="png"){
+      return filename.substring(0,filename.lastIndexOf('.')-1)+this.getWord()+'.'+extension;
+    }
+    else {
+      return null;
+    }
+    
+ 
   
   }
   changerPhoto(){
      this.filename=this.getFilename(this.file)
+     if (this.filename==null){
+      return alert( "Le ficher doit etre   jpg ou jpeg ou png")
+     }
+     else {
      this.uploadFile();
      this.User.MDP=this.getFileUri()
      this.User.Mat_Pers=this.storage.getUser()
@@ -189,7 +200,7 @@ uploadFile() {
      
      });
      
-}
+}}
 
 
 
