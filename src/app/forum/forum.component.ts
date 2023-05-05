@@ -67,7 +67,8 @@ complete: () => console.log("")
 getForums(){
   return this.http.get(this.baseURL+"/forums",{headers:this.header})
   .subscribe({
-    next: (res) => {console.log(res),this.forums=res,this.backup=this.forums},
+    next: (res) => {console.log(res),this.forums=res,this.backup=this.forums
+    this.backup.reverse();},
   error: (err) => console.log(err),
   complete: () => console.log("")
   

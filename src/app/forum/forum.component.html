@@ -96,7 +96,7 @@
                     <div class="card-body">
                         <div class="media forum-item">
                             <a href="javascript:void(0)" class="card-link">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="rounded-circle" width="50" alt="User" />
+                                <img [src]="forum1?.user.uri" class="rounded-circle" width="50" alt="User" />
                             </a>
                             <div class="media-body ml-3">
                                 <a href="javascript:void(0)" class="text-secondary">{{forum1?.user.pren_PERS }}    {{forum1?.user.nom_PERS}}</a>
@@ -134,7 +134,7 @@
                     <div class="card-body">
                         <div class="media forum-item">
                             <a href="javascript:void(0)" class="card-link">
-                                <img src="https://bootdey.com/img/Content/avatar/avatar2.png" class="rounded-circle" width="50" alt="User" />
+                                <img [src]="reply.user.uri" class="rounded-circle" width="50" alt="User" />
                                 
                             </a>
                             <div class="media-body ml-3">

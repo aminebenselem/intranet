@@ -22,6 +22,7 @@ export class FicheadminComponent implements OnInit {
     filename:string=""
   response: any;
   responses?:any=[];
+  responsesnew?:any=[];
   token=this.storage.getToken();
   baseURL:String="http://localhost:9090/fichedepaie"
   header=new HttpHeaders()
@@ -50,7 +51,16 @@ constructor(private storage:StorageService,private http:HttpClient,private fileU
     return this.http.get(this.baseURL+"/getallfiche",{headers:this.header})
     .subscribe({
       next: (res) => {console.log(res)
-      this.responses=res;},
+      this.responses=res;
+   
+      for ( let i=0;i<this.responses.length;i++){
+        if( this.responses[i].uri==null){
+this.responsesnew.push(this.responses[i]);
+
+        }
+      }
+      this.responsesnew.reverse;
+    },
     error: (err) => console.log(err),
     complete: () => console.log("")
     
@@ -64,7 +74,8 @@ constructor(private storage:StorageService,private http:HttpClient,private fileU
     let data=JSON.parse( JSON.stringify(this.fichedepaie));
     return this.http.put(this.baseURL+"/updatefiche",data,{headers:this.header})
   .subscribe({
-    next: (res) => {this.response=res,console.log(res),this.notify()},
+    next: (res) => {this.response=res,console.log(res),this.notify()
+    },
   error: (err) => {console.log(err)},
   complete: () => {console.log("")}
   
@@ -98,6 +109,8 @@ constructor(private storage:StorageService,private http:HttpClient,private fileU
         {this.fileDetails = data,console.log(data)};
         this.fileUris.push(this.fileDetails.fileUri);
         alert("File Uploaded Successfully")
+        this.reloadPage();
+        
       },
       error: (e) => {
         console.log(e);

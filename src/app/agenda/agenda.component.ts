@@ -38,7 +38,7 @@ export class AgendaComponent implements OnInit
      next: (res) => {
       this.response=res;
       this.agenda=this.response;
-    
+    this.agenda.reverse()
         console.log(this.agenda)
        
      },
