@@ -6,7 +6,8 @@
         <div class="row bg-sand">
             <div class="col-6" style="padding-left: 40px;">
                 <div class="section-title">
-                  <h2>Tous les reclamations</h2>
+                  <h2 *ngIf="role!='ROLE_USER'&&role!='ROLE_ADMIN'">Tous les reclamations</h2>
+                  <h2 *ngIf="role=='ROLE_USER'||role=='ROLE_ADMIN'">Mes reclamations</h2>
               </div>
                </div>
             </div>
@@ -15,7 +16,7 @@
                      
                     <div class="inner-main-body p-2 p-sm-3 collapse forum-content show">
                       <div *ngFor="let forum of reclamations">
-                        <div class="card mb-2"  *ngIf="role==forum.departement">
+                        <div class="card mb-2"  *ngIf="role==forum.departement||forum.user?.mat_Pers==user">
                             <div class="card-body p-2 p-sm-3">
                                 <div class="media forum-item">
                                     <a href="#" data-bs-toggle="collapse" data-bs-target=".forum-content"><img src="https://bootdey.com/img/Content/avatar/avatar1.png" class="mr-3 rounded-circle" width="50" alt="User" /></a>

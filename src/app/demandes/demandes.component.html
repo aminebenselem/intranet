@@ -138,23 +138,15 @@
             <button style="margin:60px;"  class="btn btn-primary" (click)="confirmer();postDemande()">Confirmer</button>
             </div>
             <div class="row"  *ngIf="social1=='demande convention Ooredoo'">
-            <div class="col-md-2">
-              <div class="form-group">
-                <label for="image" class="btn btn-primary">Attacher CIN frontale</label>
-  
-                <input type="file" (change)="selectFile($event);"   class="form-control" id="image" style="display: none;" >
-  
-            </div>
-       
-          </div>
+            
             
             <div class="col-md-2">
               <div class="form-group">
-                <label for="image" class="btn btn-primary">Attacher CIN frontale</label>
+                <label for="image" class="btn btn-primary">Attacher CIN frontale + arriére</label>
   
-                <input type="file" (change)="selectFileb($event);"   class="form-control" id="image" style="display: none;" >
+                <input type="file" (change)="selectFileb($event);"  multiple="multiple" class="form-control" id="image" style="display: none;" >
             </div>
-            <button style="margin:60px;"  class="btn btn-primary" (click)="confirmer();postDemandeb(file,fileb)">Confirmer</button>
+            <button style="margin:60px;"  class="btn btn-primary" (click)="confirmer();postDemandeb()">Confirmer</button>
           </div>
             
 

@@ -14,6 +14,7 @@ export class SuiviReclamationComponent implements OnInit {
   reply:ReplyRec=new ReplyRec();
   isopened:boolean=false;
 myModal:any
+user=this.storage.getUser()
 reclamation:Reclamation=new Reclamation()
 response:any
   reclamations:any;
