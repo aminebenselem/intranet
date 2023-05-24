@@ -126,7 +126,7 @@ complete: () => console.log("")
 postDemande(){
   this.demande.user.mat_Pers=this.storage.getUser();
   this.demande.type=this.social1
-  this.demande.proved="en cours"
+  this.demande.proved="en attente"
   this.filename=this.getFilename(this.file)
   this.uploadFile()
   this.demande.uri=this.getFileUri()

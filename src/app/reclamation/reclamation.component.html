@@ -6,7 +6,7 @@
         <div class="row bg-sand">
             <div class="col-6" style="padding-left: 40px;">
                 <div class="section-title">
-                  <h2>Reclamation ou suggestion</h2>
+                  <h2>Reclamation </h2>
               </div>
                </div>
             </div>
@@ -18,12 +18,7 @@
                         <div class="empty_notice invalid-feedback p-15px-b"><span>Please Fill Required Fields</span></div>
                         <div class="row">
                             
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <input id="email" type="text" placeholder="Email Address"  [(ngModel)]="reclamation.email" [ngModelOptions]="{standalone: true}"class="form-control">  
-                                </div>
-                                <br>
-                            </div>
+
                             <div class="row">
                             <div class="col-6">
                                 <div class="form-group">
@@ -55,8 +50,8 @@
                     <h5>Département</h5>
                     <div class="col-lg-6"style="width: 300px;">
                         <select class="form-select form-select-lg mb-3"  [(ngModel)]="reclamation.departement" [ngModelOptions]="{standalone: true}" aria-label=".form-select-lg example">
-                            <option value="ROLE_ChefDeptInf" selected>département informatique</option>
-                            <option value="ROLE_ChefDeptTech">département technique</option>
+                            <option value="ROLE_ChefDepartement" selected>département informatique</option>
+                            <option value="ROLE_ChefDepartement">département technique</option>
                             <option value="2">département ...</option>
                             <option value="3">département ....</option>
                           </select>

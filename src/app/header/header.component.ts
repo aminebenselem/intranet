@@ -17,6 +17,7 @@ import { User } from '../login/user';
     isopen:boolean=false;
 notifications:any=[]
 notifnumber:any=0
+role:any
  response:any
  responses:any
  user:User=new User();
@@ -25,13 +26,13 @@ notifnumber:any=0
  .set("authorization","Bearer "+this.storage.getToken())
 
     ngOnInit(): void {
-    
+      this.getuser();
       this.getNotif()
       let list=document.getElementById("notif") 
       list?.addEventListener('blur', (event) => {
         list?.classList.remove('active');
       });
-      this.getuser();
+    
     }
  
   closeOpen(){
@@ -91,7 +92,10 @@ getuser(){
   return this.http.get(this.baseURL+"/user",{headers:this.header}).subscribe({
     next:(res)=>{console.log(res)
    this.responses=res;
-      this.user.uri=this.responses.uri},
+      this.user.uri=this.responses.uri;
+      this.role=this.responses.role;
+      
+    },
     error:(err)=>{console.log(err)},
     complete:()=>{}
   });

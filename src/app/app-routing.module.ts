@@ -61,10 +61,7 @@ const routes: Routes = [
  {path:'actadmin',component:ActualitesAdminComponent,canActivate:[AuthGuard] },
  {path:'formationadmin',component:FormationAdminComponent,canActivate:[AuthGuard] },
  {path:'suivireclamation',component:SuiviReclamationComponent,canActivate:[AuthGuard] },
- {path:'eventadmin',component:EventAdminComponent,canActivate:[AuthGuard,RoleGuard], 
- data: { 
-   expectedRole: 'ROLE_ADMIN'
- } },
+ {path:'eventadmin',component:EventAdminComponent, },
 
  {path:'ficheadmin',component:FicheadminComponent, 
   },
