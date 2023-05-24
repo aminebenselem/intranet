@@ -43,6 +43,7 @@
               </div>
               
               <button style="margin:60px;" class="btn btn-primary" (click)="next()">Suivant</button>
+              <app-footer></app-footer>
         </div>
         <!--STEP 2-->
         
@@ -67,7 +68,7 @@
                </select>
              </div>
              <div class="col-md-4"> <button style="margin:60px;" class="btn btn-primary" (click)="next();postFiche()">suivant</button></div>
-            
+             <app-footer></app-footer>
          </div>
           
         <!--STEP 2 IF ATTESTATION DE TRAVAIL-->
@@ -79,7 +80,7 @@
                       </div>
             </div>
             <div class="col-md-4"> <button style="margin:60px;" class="btn btn-primary" (click)="getAttestation()">Télécharger</button></div>
-           
+            <app-footer></app-footer>
         </div>
         <!--END STEP 2 IF ATTESTATION DE TRAVAIL-->
         <!--STEP 2 IF DEMANDE SOCIALE-->
@@ -91,7 +92,7 @@
            </div>
            <div class="col-md-4"> <button style="margin:60px;" class="btn btn-primary" (click)="next()">suivant</button></div>
         </div>
-
+        <app-footer></app-footer>
       </div>
     <!--END STEP 2 IF DEMANDE SOCIALE-->
 
@@ -125,6 +126,7 @@
                 <label for="image" class="btn btn-primary">Attacher un extrait de déces</label>
   
                 <input type="file"  (change)="selectFile($event);"  class="form-control" id="image" style="display: none;" >
+                <br>
                 <button style="margin:60px;"  class="btn btn-primary" (click)="confirmer();postDemande()">Confirmer</button>
             </div>
             </div>
@@ -149,7 +151,7 @@
             <button style="margin:60px;"  class="btn btn-primary" (click)="confirmer();postDemandeb()">Confirmer</button>
           </div>
             
-
+  
          
         </div>
         

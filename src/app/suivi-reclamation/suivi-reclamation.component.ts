@@ -29,7 +29,7 @@ header=new HttpHeaders()
 
 
   ngOnInit(): void {
-    
+    console.log(this.role)
     this.getForums();
     this.reclamation.user.mat_Pers=this.storage.getUser()
 
