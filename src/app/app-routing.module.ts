@@ -82,8 +82,8 @@ const routes: Routes = [
    expectedRole: 'ROLE_ADMIN'
  } },
  {path:'etatdemandes',component:EtatdemandeComponent},
- {path:'logout',component:LogoutComponent,canActivate:[AuthGuard] },
- {path:'403',component:E403Component,canActivate:[AuthGuard] }
+ {path:'logout',component:LogoutComponent, },
+ {path:'403',component:E403Component}
 ];
 
 @NgModule({
