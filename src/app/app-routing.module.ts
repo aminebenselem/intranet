@@ -58,14 +58,29 @@ const routes: Routes = [
   {path:  'tempdetravail',component:  TempsDeTravailComponent,canActivate:[AuthGuard] },
   {path:'tableaudeservice',component:TableaudeserviceComponent,canActivate:[AuthGuard] },
  {path:'pointage',component:PointageComponent,canActivate:[AuthGuard] },
- {path:'actadmin',component:ActualitesAdminComponent,canActivate:[AuthGuard] },
- {path:'formationadmin',component:FormationAdminComponent,canActivate:[AuthGuard] },
+ {path:'actadmin',component:ActualitesAdminComponent,canActivate:[AuthGuard,RoleGuard], 
+ data: { 
+   expectedRole: 'ROLE_ADMIN'
+ } },
+ {path:'formationadmin',component:FormationAdminComponent,canActivate:[AuthGuard,RoleGuard], 
+ data: { 
+   expectedRole: 'ROLE_AdminFormation'
+ } },
  {path:'suivireclamation',component:SuiviReclamationComponent,canActivate:[AuthGuard] },
- {path:'eventadmin',component:EventAdminComponent, },
+ {path:'eventadmin',component:EventAdminComponent,canActivate:[AuthGuard,RoleGuard], 
+ data: { 
+   expectedRole: 'ROLE_ADMIN'
+ } },
 
- {path:'ficheadmin',component:FicheadminComponent, 
+ {path:'ficheadmin',component:FicheadminComponent, canActivate:[AuthGuard,RoleGuard], 
+ data: { 
+   expectedRole: 'ROLE_ADMIN'
+ }
   },
- {path:'attestation-admin',component:AttestationdetravailAdminComponent,canActivate:[AuthGuard] },
+ {path:'attestation-admin',component:AttestationdetravailAdminComponent,canActivate:[AuthGuard,RoleGuard], 
+ data: { 
+   expectedRole: 'ROLE_ADMIN'
+ } },
  {path:'etatdemandes',component:EtatdemandeComponent},
  {path:'logout',component:LogoutComponent,canActivate:[AuthGuard] },
  {path:'403',component:E403Component,canActivate:[AuthGuard] }
