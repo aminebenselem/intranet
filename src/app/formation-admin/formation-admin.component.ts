@@ -40,21 +40,21 @@ suser:any
  ngOnInit(): void {
   this.getUsers()
  }
- onSubmit(){
-   this.filename=this.getFilename(this.file)
+ OnSubmit(){
+  this.filename=this.getFilename(this.file)
    this.uploadFile()
    this.formation.uri=this.getFileUri()
-  
-   let data=JSON.parse( JSON.stringify(this.formation));
-   return this.http.post(this.baseURL+"/addformation",data,{headers:this.header})
+this.userformation.formation=this.formation
+this.userformation.users=this.pers
+  let data=JSON.parse( JSON.stringify(this.userformation));
+   return this.http.post(this.baseURL+"/addformationUser",data,{headers:this.header})
  .subscribe({
    next: (res) => {this.response=res,console.log(res)},
  error: (err) => {console.log(err)},
  complete: () => {console.log("")}
  
  });
- 
- }
+}
  reloadPage() {
    window.location.reload();
  }
@@ -133,16 +133,5 @@ delete(user:any){
    
 
 }
-async userFormation(){
-this.userformation.formation=this.formation
-this.userformation.users=this.pers
-  let data=JSON.parse( JSON.stringify(this.userformation));
-   return this.http.post(this.baseURL+"/addformationUser",data,{headers:this.header})
- .subscribe({
-   next: (res) => {this.response=res,console.log(res)},
- error: (err) => {console.log(err)},
- complete: () => {console.log("")}
- 
- });
-}
+
  }
